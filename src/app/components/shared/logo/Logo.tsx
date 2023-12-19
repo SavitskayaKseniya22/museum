@@ -8,7 +8,7 @@ function Logo() {
   return (
     <div className={styles.logo}>
       <Image
-        src="/svg/Logo.svg"
+        src="/svg/icon-logo.svg"
         width={49}
         height={26}
         alt="Logo triangle"
