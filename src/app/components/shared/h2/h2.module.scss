@@ -1,0 +1,37 @@
+@import '../../../variables.module.scss';
+
+.h2 {
+  font-family: $title-font-family;
+  font-size: 80px;
+  line-height: 90px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+
+  @media (max-width: 1919px) {
+    font-size: 50px;
+  }
+
+  @media (max-width: 1023px) {
+    font-size: 40px;
+    line-height: 60px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  &.dark {
+    color: $black-color;
+  }
+
+  &.light {
+    color: $white-color;
+  }
+
+  &:hover {
+    color: $gold-color;
+  }
+}

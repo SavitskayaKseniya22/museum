@@ -1,0 +1,33 @@
+@import '../../../variables.module.scss';
+
+.nav-link {
+  color: $white-color;
+  font-family: $main-font-family;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 26px;
+  letter-spacing: 2px;
+
+  @media (max-width: 1919px) {
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: 300;
+  }
+
+  .light {
+    color: $white-color;
+  }
+
+  .dark {
+    color: $black-color;
+  }
+
+  &:hover {
+    color: $gold-color;
+  }
+
+  &:active {
+    color: $dark-gold-color;
+  }
+}
