@@ -1,0 +1,35 @@
+@import '../../../variables.module.scss';
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  gap: 25px;
+
+  .logo__title {
+    margin: 0;
+    font-family: $title-font-family;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: $white-color;
+
+    @media (max-width: 767px) {
+      font-size: 16px;
+    }
+  }
+
+  .logo__image {
+    width: 49px;
+    height: 26px;
+
+    @media (max-width: 767px) {
+      width: 29px;
+      height: 16px;
+    }
+  }
+}
