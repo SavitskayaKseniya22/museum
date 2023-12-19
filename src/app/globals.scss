@@ -34,3 +34,21 @@ ul {
 a {
   text-decoration: none;
 }
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+
+  @media (max-width: 1919px) {
+    width: 984px;
+  }
+
+  @media (max-width: 1023px) {
+    width: 728px;
+  }
+
+  @media (max-width: 767px) {
+    width: 380px;
+  }
+}
