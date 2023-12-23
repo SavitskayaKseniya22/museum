@@ -1,3 +1,5 @@
+/* eslint-disable react/require-default-props */
+
 'use client';
 
 import React, { ReactNode } from 'react';
@@ -18,13 +20,17 @@ function H2({
   children,
   type,
   colorType,
+  className = '',
 }: {
   children: ReactNode;
   type: TitleType;
   colorType: TitleColorType;
+  className?: string;
 }) {
   return (
-    <h2 className={`${styles.h2} ${styles[type]} ${styles[colorType]}`}>
+    <h2
+      className={`${styles.h2} ${styles[type]} ${styles[colorType]} ${className}`}
+    >
       {children}
     </h2>
   );

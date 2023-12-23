@@ -11,12 +11,16 @@ function Contacts() {
   return (
     <section className={styles.contacts} id="Contacts">
       <div className={`${styles.container} container`}>
-        <H2 type={TitleType.UNDERLINED} colorType={TitleColorType.GOLD}>
+        <H2
+          type={TitleType.UNDERLINED}
+          colorType={TitleColorType.GOLD}
+          className={styles.title__h2}
+        >
           CONTACTS
         </H2>
 
-        <div>
-          <H4>
+        <div className={styles.content}>
+          <H4 className={styles.title__h4}>
             Palais Royal
             <br />
             Musee du Louvre

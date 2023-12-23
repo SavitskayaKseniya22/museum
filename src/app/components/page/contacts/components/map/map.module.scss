@@ -2,7 +2,6 @@
   width: 960px;
   height: 620px;
   grid-area: 2 / 2 / 3 / 3;
-
   position: relative;
 
   @media (max-width: 1919px) {
@@ -19,5 +18,10 @@
   @media (max-width: 767px) {
     width: 380px;
     height: 248px;
+  }
+
+  @media (max-width: 320px) {
+    width: 100%;
+    height: auto;
   }
 }

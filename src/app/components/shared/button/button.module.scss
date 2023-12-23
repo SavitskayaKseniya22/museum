@@ -8,10 +8,8 @@
   color: $white-color;
   text-align: center;
   letter-spacing: 2px;
-
-  &:hover {
-    background-color: $gold-color;
-  }
+  border-style: none;
+  cursor: pointer;
 
   &.main {
     padding: 24px 64px;
@@ -23,6 +21,10 @@
     @media (max-width: 1919px) {
       font-size: 20px;
       font-weight: 300;
+    }
+
+    &:hover {
+      background-color: $gold-color;
     }
   }
 
@@ -39,6 +41,7 @@
 
     &:hover {
       color: $black-color;
+      background-color: $gold-color;
     }
   }
 }
