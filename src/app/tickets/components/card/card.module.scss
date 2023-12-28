@@ -1,0 +1,103 @@
+.card__container {
+  position: relative;
+  width: 470px;
+  height: 241px;
+
+  @media (max-width: 1023px) {
+    width: 500px;
+  }
+
+  @media (max-width: 767px) {
+    width: 330px;
+    height: 445px;
+  }
+}
+
+.card {
+  width: 360px;
+  height: 211px;
+  background-color: #bcbcbc;
+  padding: 15px 20px;
+  position: absolute;
+
+  font: normal 400 12px/14px 'Roboto';
+
+  @media (max-width: 767px) {
+    width: 330px;
+    height: 209px;
+    font: normal 400 11px/13px 'Roboto';
+  }
+
+  input {
+    height: 35px;
+    border: none;
+    outline: none;
+    appearance: none;
+    width: 100%;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 5px;
+
+    &.card__number,
+    &.card__exp {
+      width: 215px;
+    }
+
+    .card__exp-list {
+      display: flex;
+      gap: 15px;
+    }
+  }
+}
+
+.card_front {
+  top: 0;
+  left: 0;
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-image: url('/img/img-mastercard.png'), url('/img/img-visa.png');
+  background-repeat: no-repeat;
+  background-position:
+    top 65px right 20px,
+    top 34px right 20px;
+}
+
+.card_back {
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  position: absolute;
+  padding: 85px 20px 15px;
+  background-image: linear-gradient(
+    to bottom,
+    #a4a4a3 12%,
+    #030303 12%,
+    #030303 32%,
+    #a4a4a3 32%
+  );
+
+  .card_back__container {
+    height: 111px;
+    width: 75px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    label {
+      text-align: center;
+    }
+
+    p {
+      font: normal 400 10px/12px 'Roboto';
+      width: 55px;
+    }
+  }
+}
