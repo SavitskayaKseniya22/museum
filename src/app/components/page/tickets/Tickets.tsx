@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './tickets.module.scss';
 import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
 import H4 from '../../shared/h4/H4';
@@ -71,7 +72,9 @@ function Tickets() {
 
             <H4>Total € 0</H4>
 
-            <Button buttonType={ButtonType.SUB}>Buy Now</Button>
+            <Button buttonType={ButtonType.SUB}>
+              <Link href="./tickets">Buy Now</Link>
+            </Button>
           </div>
         </div>
       </div>

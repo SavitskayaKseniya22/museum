@@ -1,3 +1,5 @@
+/* eslint-disable react/require-default-props */
+
 'use client';
 
 import React, { ReactNode } from 'react';
@@ -11,12 +13,17 @@ export enum ButtonType {
 function Button({
   children,
   buttonType,
+  className = '',
 }: {
   children: ReactNode;
   buttonType: ButtonType;
+  className?: string;
 }) {
   return (
-    <button type="button" className={`${styles.button} ${styles[buttonType]}`}>
+    <button
+      type="button"
+      className={`${styles.button} ${styles[buttonType]} ${className}`}
+    >
       {children}
     </button>
   );
