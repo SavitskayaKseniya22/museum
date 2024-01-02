@@ -1,11 +1,16 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
+import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
+
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './page.module.scss';
 import Counter, {
+  CounterNameType,
   CounterType,
 } from '../components/page/tickets/components/counter/Counter';
 import Button, { ButtonType } from '../components/shared/button/Button';
@@ -13,11 +18,91 @@ import Card from './components/card/Card';
 import H2, { TitleColorType, TitleType } from '../components/shared/h2/H2';
 import H5 from '../components/shared/h5/H5';
 import H4 from '../components/shared/h4/H4';
+import { ExhibitionType, Inputs } from '../interfaces';
+import { addFullData, initialState } from '../services/ticketsSlice';
+import { RootState } from '../services/store';
+
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
+const days = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+];
+
+export const prices = {
+  [ExhibitionType['Permanent exhibition']]: {
+    basic: 20,
+    senior: 10,
+  },
+  [ExhibitionType['Temporary exhibition']]: {
+    basic: 25,
+    senior: 12.5,
+  },
+  [ExhibitionType['Combined Admission']]: {
+    basic: 40,
+    senior: 20,
+  },
+};
 
 function Order() {
+  const dispatch = useDispatch();
+  const tickets = useSelector((state: RootState) => state.tickets);
+
+  const methods = useForm<Inputs>({
+    defaultValues: tickets || initialState,
+    reValidateMode: 'onSubmit',
+  });
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = methods;
+
+  const [exhibition, date, time, senior, basic] = watch([
+    'exhibition',
+    'date',
+    'time',
+    'senior',
+    'basic',
+  ]);
+
+  const fields = watch();
+
+  useEffect(() => {
+    dispatch(addFullData({ ...fields }));
+  }, [dispatch, fields]);
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+  };
+
   return (
     <main className={styles.main}>
-      <div className={styles.container}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={styles.container}
+        noValidate
+      >
         <div className={styles.container_form}>
           <div className={styles.header}>
             <Image
@@ -44,7 +129,11 @@ function Order() {
                 height={15}
                 alt="Date"
               />
-              <input type="date" name="date" />
+              <input
+                type="date"
+                {...register('date')}
+                min={new Date().toISOString().split('T')[0]}
+              />
               <Image
                 src="/svg/icon-arrow.svg"
                 width={15}
@@ -59,10 +148,8 @@ function Order() {
                 height={15}
                 alt="Time"
               />
-              <select name="chooseTime" size={1}>
-                <option value="9:00" selected>
-                  9:00
-                </option>
+              <select size={1} {...register('time')}>
+                <option value="9:00">9:00</option>
                 <option value="9:30">9:30</option>
                 <option value="10:00">10:00</option>
                 <option value="10:30">10:30</option>
@@ -96,7 +183,16 @@ function Order() {
                 height={15}
                 alt="Name"
               />
-              <input type="text" name="name" placeholder="Name" />
+              <input
+                type="text"
+                placeholder={errors.name?.message || 'Name'}
+                {...register('name', {
+                  required: {
+                    value: true,
+                    message: 'Name is required',
+                  },
+                })}
+              />
             </li>
             <li>
               <Image
@@ -105,7 +201,16 @@ function Order() {
                 height={15}
                 alt="Email"
               />
-              <input type="email" name="email" placeholder="E-mail" />
+              <input
+                type="email"
+                placeholder={errors.email?.message || 'E-mail'}
+                {...register('email', {
+                  required: {
+                    value: true,
+                    message: 'E-mail is required',
+                  },
+                })}
+              />
             </li>
             <li>
               <Image
@@ -114,7 +219,16 @@ function Order() {
                 height={15}
                 alt="Phone"
               />
-              <input type="tel" name="phone" placeholder="Phone" />
+              <input
+                type="tel"
+                placeholder={errors.phone?.message || 'Phone'}
+                {...register('phone', {
+                  required: {
+                    value: true,
+                    message: 'Phone is required',
+                  },
+                })}
+              />
             </li>
 
             <li>
@@ -124,12 +238,14 @@ function Order() {
                 height={15}
                 alt="Ballot"
               />
-              <select name="select" size={1}>
-                <option value="Permanent" selected>
+              <select size={1} {...register('exhibition')}>
+                <option value="Permanent exhibition">
                   Permanent exhibition
                 </option>
-                <option value="Temporary">Temporary exhibition</option>
-                <option value="Combined">Combined Admission</option>
+                <option value="Temporary exhibition">
+                  Temporary exhibition
+                </option>
+                <option value="Combined Admission">Combined Admission</option>
               </select>
 
               <Image
@@ -145,12 +261,22 @@ function Order() {
 
               <ul className={styles.counter__list}>
                 <li className={styles.counter}>
-                  <div>Basic 18+ (20€)</div>
-                  <Counter counterType={CounterType.DARK} />
+                  <div>Basic 18+ ({prices[exhibition].basic}€)</div>
+                  <FormProvider {...methods}>
+                    <Counter
+                      counterType={CounterType.DARK}
+                      counterName={CounterNameType.BASIC}
+                    />
+                  </FormProvider>
                 </li>
                 <li className={styles.counter}>
-                  <div>Senior 65+ (0€)</div>
-                  <Counter counterType={CounterType.DARK} />
+                  <div>Senior 65+ ({prices[exhibition].senior}€)</div>
+                  <FormProvider {...methods}>
+                    <Counter
+                      counterType={CounterType.DARK}
+                      counterName={CounterNameType.SENIOR}
+                    />
+                  </FormProvider>
                 </li>
               </ul>
             </li>
@@ -176,57 +302,70 @@ function Order() {
                   height={15}
                   alt="Date"
                 />
-                Friday, August 19
+                {`${days[new Date(date).getDay()]}, ${
+                  months[new Date(date).getMonth()]
+                } ${new Date(date).getDate()}`}
               </li>
               <li className={styles.summary}>
                 <Image
                   src="/svg/icon-time.svg"
                   width={15}
                   height={15}
-                  alt="Date"
+                  alt="Time"
                 />
-                <span>16 : 30</span>
+                <span>{time}</span>
               </li>
               <li className={styles.summary}>
                 <Image
                   src="/svg/icon-circle.svg"
                   width={15}
                   height={15}
-                  alt="Date"
+                  alt="Circle"
                 />
-                Temporary exhibition
+                {exhibition}
               </li>
             </ul>
 
             <ul className={styles.note}>
               <li>
-                <div className={styles.amount}>0</div>
-                <span className={styles.price}>Basic (20€)</span>
-                <span>0€</span>
+                <div className={styles.amount}>{basic}</div>
+                <span className={styles.price}>
+                  Basic ({prices[exhibition].basic}€)
+                </span>
+                <span>{basic * prices[exhibition].basic}€</span>
               </li>
               <li>
-                <div className={styles.amount}>0</div>
-                <span className={styles.price}>Senior (10€)</span>
-                <span>0€</span>
+                <div className={styles.amount}>{senior}</div>
+                <span className={styles.price}>
+                  Senior ({prices[exhibition].senior}€)
+                </span>
+                <span>{senior * prices[exhibition].senior}€</span>
               </li>
             </ul>
 
             <div className={styles.bill}>
               Total:
-              <span>0€</span>
+              <span>
+                {basic * prices[exhibition].basic +
+                  senior * prices[exhibition].senior}
+                €
+              </span>
             </div>
           </div>
-
-          <Card />
+          <FormProvider {...methods}>
+            <Card />
+          </FormProvider>
 
           <Button
             buttonType={ButtonType.SUB}
             className={styles.overview__button}
+            globalType="submit"
+            isDisabled={!(basic > 0 || senior > 0)}
           >
             Book
           </Button>
         </div>
-      </div>
+      </form>
     </main>
   );
 }

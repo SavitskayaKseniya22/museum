@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable react/require-default-props */
 
 'use client';
@@ -13,16 +14,21 @@ export enum ButtonType {
 function Button({
   children,
   buttonType,
-  className = '',
+  className,
+  globalType = 'button',
+  isDisabled = false,
 }: {
   children: ReactNode;
   buttonType: ButtonType;
   className?: string;
+  globalType?: 'submit' | 'button';
+  isDisabled?: boolean;
 }) {
   return (
     <button
-      type="button"
+      type={globalType}
       className={`${styles.button} ${styles[buttonType]} ${className}`}
+      disabled={isDisabled}
     >
       {children}
     </button>

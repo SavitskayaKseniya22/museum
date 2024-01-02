@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+
 import styles from './page.module.scss';
 import Contacts from './components/page/contacts/Contacts';
 import Parallax from './components/page/parallax/Parallax';

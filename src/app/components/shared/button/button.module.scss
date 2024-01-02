@@ -44,4 +44,10 @@
       background-color: $gold-color;
     }
   }
+
+  &:disabled {
+    background-color: $gray-color !important;
+    cursor: none;
+    pointer-events: none;
+  }
 }
