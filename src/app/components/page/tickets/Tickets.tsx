@@ -10,6 +10,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPreData } from '@/app/services/ticketsSlice';
 import { RootState } from '@/app/services/store';
+import { prices } from '@/app/tickets/page';
 import styles from './tickets.module.scss';
 import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
 import H4 from '../../shared/h4/H4';
@@ -36,13 +37,11 @@ function Tickets() {
 
   const { register, watch } = methods;
 
-  const fields = watch(['exhibition', 'basic', 'senior']);
+  const [exhibition, basic, senior] = watch(['exhibition', 'basic', 'senior']);
 
   useEffect(() => {
-    dispatch(
-      addPreData({ exhibition: fields[0], basic: fields[1], senior: fields[2] })
-    );
-  }, [dispatch, fields]);
+    dispatch(addPreData({ exhibition, basic, senior }));
+  }, [basic, dispatch, exhibition, senior]);
 
   return (
     <section className={styles.tickets} id="Tickets">
@@ -124,7 +123,12 @@ function Tickets() {
               </li>
             </ul>
 
-            <H4>Total € 0</H4>
+            <H4>
+              Total{' '}
+              {basic * prices[exhibition].basic +
+                senior * prices[exhibition].senior}{' '}
+              €
+            </H4>
 
             <Button buttonType={ButtonType.SUB}>
               <Link href="./tickets">Buy Now</Link>

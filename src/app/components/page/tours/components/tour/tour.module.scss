@@ -1,0 +1,104 @@
+@import '../../../../../variables.module.scss';
+
+.tour__content {
+  width: 440px;
+  height: 424px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0;
+
+  .tour__title {
+    padding-bottom: 10px;
+    background-image: linear-gradient($red-color, $red-color),
+      linear-gradient($red-color, $red-color);
+
+    background-position:
+      0 100%,
+      300px 100%;
+    background-repeat: no-repeat no-repeat;
+    background-size:
+      300px 2px,
+      0% 2px;
+    transition: background-size 0.6s;
+  }
+
+  &:hover .tour__title {
+    background-size:
+      100% 2px,
+      100% 2px;
+  }
+
+  @media (max-width: 1919px) {
+    width: 330px;
+    height: 345px;
+
+    .tour__title {
+      background-position:
+        0 100%,
+        150px 100%;
+      background-size:
+        150px 2px,
+        0% 2px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    width: 280px;
+    height: 301px;
+  }
+}
+
+.tour__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: $dark-color;
+
+  .tour__caption_main {
+    font:
+      normal 100 22px/26px 'Roboto',
+      sans-serif;
+  }
+
+  .tour__caption_addition {
+    font:
+      normal 100 18px/21px 'Roboto',
+      sans-serif;
+  }
+
+  @media (max-width: 1919px) {
+    .tour__caption_main {
+      font:
+        normal 100 20px/23px 'Roboto',
+        sans-serif;
+    }
+
+    .tour__caption_addition {
+      font:
+        normal 100 16px/19px 'Roboto',
+        sans-serif;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .tour__caption_main {
+      font:
+        normal 100 18px/21px 'Roboto',
+        sans-serif;
+    }
+  }
+}
+
+.tour__preview {
+  @media (max-width: 1919px) {
+    width: 330px;
+    height: 215px;
+  }
+
+  @media (max-width: 1023px) {
+    width: 280px;
+    height: 180px;
+  }
+}

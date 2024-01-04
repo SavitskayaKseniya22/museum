@@ -7,10 +7,12 @@ import Contacts from './components/page/contacts/Contacts';
 import Parallax from './components/page/parallax/Parallax';
 import Footer from './components/page/footer/Footer';
 import Tickets from './components/page/tickets/Tickets';
+import Tours from './components/page/tours/Tours';
 
 export default function Home() {
   return (
     <main className={styles.main}>
+      <Tours />
       <Tickets />
       <Parallax />
       <Contacts />
