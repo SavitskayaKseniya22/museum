@@ -1,0 +1,47 @@
+.comparition {
+  position: relative;
+  width: 720px;
+  height: 700px;
+  flex-shrink: 0;
+
+  .comparition__image_first,
+  .comparition__image_second {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .comparition__image_first {
+    z-index: 12;
+    left: 0;
+  }
+
+  .comparition__image_second {
+    z-index: 11;
+    right: 0;
+    width: 100%;
+  }
+
+  .comparition__slider {
+    z-index: 14;
+    cursor: ew-resize;
+    width: 40px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+
+  @media (max-width: 1919px) {
+    align-self: center;
+  }
+
+  @media (max-width: 767px) {
+    width: 380px;
+    height: 368px;
+  }
+}

@@ -1,0 +1,62 @@
+@import '../../../variables.module.scss';
+
+.explore {
+  background-color: $black-color;
+
+  .container {
+    padding: 75px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+
+    .explore__content {
+      display: flex;
+      flex-direction: column;
+      gap: 75px;
+    }
+
+    .explore__info {
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      font:
+        normal 300 22px/38px 'Roboto',
+        sans-serif;
+
+      .explore__info_emphasis {
+        color: $gold-color;
+      }
+    }
+  }
+
+  @media (max-width: 1919px) {
+    .container {
+      padding: 50px 0;
+      flex-direction: column;
+
+      .explore__content {
+        gap: 60px;
+      }
+
+      .explore__info {
+        gap: 0;
+        font:
+          normal 300 20px/38px 'Roboto',
+          sans-serif;
+      }
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .container {
+      padding: 40px 0;
+      gap: 40px;
+
+      .explore__info {
+        display: none;
+      }
+    }
+  }
+}

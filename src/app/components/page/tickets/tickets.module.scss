@@ -119,6 +119,9 @@
     gap: 40px;
     justify-content: space-between;
   }
+  @media (max-width: 767px) {
+    align-items: center;
+  }
 
   .counters {
     display: flex;

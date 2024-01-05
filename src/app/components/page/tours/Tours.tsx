@@ -48,7 +48,7 @@ function Tours() {
         </H2>
         <ul className={styles.tours__list}>
           {tours.map((tour) => (
-            <li>
+            <li key={tour.name}>
               <Tour tour={tour} />
             </li>
           ))}
