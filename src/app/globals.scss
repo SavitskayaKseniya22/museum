@@ -43,6 +43,14 @@ a {
   }
 }
 
+button {
+  margin: 0;
+  padding: 0;
+  border-style: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
 .container {
   max-width: 1440px;
   margin: 0 auto;

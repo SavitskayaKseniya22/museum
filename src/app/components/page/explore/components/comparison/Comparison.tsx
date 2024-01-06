@@ -13,6 +13,8 @@ function Comparition() {
 
   const positions = useRef({ left: 0, right: 0, width: 0 });
 
+  const imageRef = useRef(null);
+
   useEffect(() => {
     const handleResize = () => {
       const dropzonePosition = (
@@ -40,6 +42,7 @@ function Comparition() {
       ref={dropZoneRef}
       className={styles.comparition}
       onDragOver={(e) => {
+        e.preventDefault();
         const x = e.pageX;
         const { left, right, width } = positions.current;
 
@@ -66,12 +69,23 @@ function Comparition() {
           left: `${position}%`,
         }}
         ref={cursorRef}
+        onDragStart={(e) => {
+          e.dataTransfer.setDragImage(
+            imageRef.current as unknown as Element,
+            -1000,
+            -1000
+          );
+        }}
       >
         <Image
           src="/img/explore/img-cursor.png"
           fill
           alt="Before"
           draggable="false"
+          ref={imageRef}
+          style={{
+            objectFit: 'cover',
+          }}
         />
       </div>
 
