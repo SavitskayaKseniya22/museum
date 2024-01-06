@@ -1,19 +1,16 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-
 'use client';
 
 import React from 'react';
-
+import Image from 'next/image';
 import styles from './journey.module.scss';
-
 import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
 import Player from './components/player/Player';
 
 function Journey() {
   return (
-    <section className="video light-theme" id="Video">
-      <div className="container">
-        <div className="content">
+    <section className={styles.journey} id="Video">
+      <div className={`${styles.container} container`}>
+        <div className={styles.content}>
           <H2 type={TitleType.REGULAR} colorType={TitleColorType.GOLD}>
             Video journey
           </H2>
@@ -23,119 +20,60 @@ function Journey() {
           </p>
         </div>
 
-        <Player />
+        <div className={styles.slider}>
+          <Player />
 
-        <div
-          id="video-slider"
-          className="carousel slide"
-          data-bs-ride="carousel"
-          data-bs-interval="false"
-        >
-          <div className="carousel-inner playlist">
-            <div className="carousel-item active">
+          <ul className={styles.slider__content}>
+            <li className={styles.slider__item}>
               <iframe
-                width="452"
-                height="254"
                 src="https://www.youtube.com/embed/zp1BXPX8jcU"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 className="d-block w-100"
               />
-            </div>
-            <div className="carousel-item">
+            </li>
+            <li className={styles.slider__item}>
               <iframe
-                width="452"
-                height="254"
-                src="https://www.youtube.com/embed/aWmJ5DgyWPI"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                loading="lazy"
-                className="d-block w-100"
-              />
-            </div>
-            <div className="carousel-item">
-              <iframe
-                width="452"
-                height="254"
-                src="https://www.youtube.com/embed/Vi5D6FKhRmo"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                loading="lazy"
-                className="d-block w-100"
-              />
-            </div>
-            <div className="carousel-item">
-              <iframe
-                width="452"
-                height="254"
-                src="https://www.youtube.com/embed/NOhDysLnTvY"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                loading="lazy"
-                className="d-block w-100"
-              />
-            </div>
-            <div className="carousel-item">
-              <iframe
-                width="452"
-                height="254"
-                src="https://www.youtube.com/embed/2OR0OCr6uRE"
+                src="https://www.youtube.com/embed/zp1BXPX8jcU"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 className="d-block w-100"
               />
-            </div>
-          </div>
+            </li>
+            <li className={styles.slider__item}>
+              <iframe
+                src="https://www.youtube.com/embed/zp1BXPX8jcU"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                className="d-block w-100"
+              />
+            </li>
+          </ul>
 
-          <div className="video-slider-control">
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#video-slider"
-              data-bs-slide="prev"
-            />
-
-            <div className="paginator carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#video-slider"
-                data-bs-slide-to="0"
-                className="active"
-                aria-current="true"
-                aria-label="Slide 1"
+          <div className={styles.slider__controls}>
+            <button type="button">
+              <Image
+                src="/svg/icon-arrow_left.svg"
+                width={10}
+                height={10}
+                alt="Arrow to the left"
               />
-              <button
-                type="button"
-                data-bs-target="#video-slider"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
+            </button>
+            <ul className={styles.slider__paginator}>
+              <li />
+              <li />
+              <li />
+              <li />
+              <li />
+            </ul>
+            <button type="button">
+              <Image
+                src="/svg/icon-arrow_right.svg"
+                width={10}
+                height={10}
+                alt="Arrow to the right"
               />
-              <button
-                type="button"
-                data-bs-target="#video-slider"
-                data-bs-slide-to="2"
-                aria-label="Slide 3"
-              />
-              <button
-                type="button"
-                data-bs-target="#video-slider"
-                data-bs-slide-to="3"
-                aria-label="Slide 4"
-              />
-              <button
-                type="button"
-                data-bs-target="#video-slider"
-                data-bs-slide-to="4"
-                aria-label="Slide 5"
-              />
-            </div>
-
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#video-slider"
-              data-bs-slide="next"
-            />
+            </button>
           </div>
         </div>
       </div>
