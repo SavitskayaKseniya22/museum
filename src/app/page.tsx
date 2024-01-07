@@ -10,10 +10,12 @@ import Tickets from './components/page/tickets/Tickets';
 import Tours from './components/page/tours/Tours';
 import Explore from './components/page/explore/Explore';
 import Journey from './components/page/journey/Journey';
+import Welcome from './components/page/welcome/Welcome';
 
 export default function Home() {
   return (
     <main className={styles.main}>
+      <Welcome />
       <Journey />
       <Explore />
       <Tours />
