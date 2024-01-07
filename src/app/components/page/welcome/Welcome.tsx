@@ -6,6 +6,7 @@ import styles from './welcome.module.scss';
 import Logo from '../../shared/logo/Logo';
 import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
 import WelcomeSlider from './components/welcome-slider/WelcomeSlider';
+import WelcomeBurger from './components/welcome-burger/WelcomeBurger';
 
 function Welcome() {
   return (
@@ -67,6 +68,7 @@ function Welcome() {
           </div>
           <WelcomeSlider />
         </div>
+        <WelcomeBurger />
       </div>
     </section>
   );

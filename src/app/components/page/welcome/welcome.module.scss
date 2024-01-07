@@ -4,6 +4,10 @@
   background-color: black;
 }
 
+.container {
+  position: relative;
+}
+
 .welcome__header {
   display: flex;
   justify-content: space-between;
@@ -70,9 +74,13 @@
   }
 
   @media (max-width: 1023px) {
-    height: unset;
+    height: 861px;
     flex-direction: column;
     gap: 50px;
+  }
+
+  @media (max-width: 767px) {
+    height: 544px;
   }
 }
 
@@ -119,7 +127,7 @@
         sans-serif;
     }
   }
-  
+
   .welcome__button_main {
     display: flex;
     align-items: center;
