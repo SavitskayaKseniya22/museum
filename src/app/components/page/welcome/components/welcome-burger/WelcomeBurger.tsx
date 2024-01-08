@@ -6,7 +6,11 @@ import SocialsList from '@/app/components/shared/socials-list/SocialsList';
 import Image from 'next/image';
 import styles from './welcome-burger.module.scss';
 
-function WelcomeBurger() {
+function WelcomeBurger({ isOpen }: { isOpen: boolean }) {
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <div className={styles.welcome__content_burger}>
       <ul className={styles.burger__navigation}>
@@ -78,7 +82,7 @@ function WelcomeBurger() {
         </li>
       </ul>
 
-      <div className={styles.images}>
+      <div className={styles.burger__images}>
         <div
           className={`${styles['image-container']} ${styles['image-container_first']}`}
         >
@@ -112,7 +116,9 @@ function WelcomeBurger() {
         </div>
       </div>
 
-      <SocialsList />
+      <div className={styles.welcome__socials}>
+        <SocialsList />
+      </div>
     </div>
   );
 }

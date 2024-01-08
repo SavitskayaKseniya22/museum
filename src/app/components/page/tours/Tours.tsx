@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-
 import styles from './tours.module.scss';
 import Tour from './components/tour/Tour';
 import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
@@ -41,7 +40,7 @@ export const tours = [
 
 function Tours() {
   return (
-    <section className={styles.tours} id="visiting">
+    <section className={styles.tours} id="Tours">
       <div className={`${styles.container} container`}>
         <H2 colorType={TitleColorType.GOLD} type={TitleType.UNDERLINED}>
           Virtual tour

@@ -1,74 +1,45 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
+
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 import styles from './welcome.module.scss';
-import Logo from '../../shared/logo/Logo';
-import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
 import WelcomeSlider from './components/welcome-slider/WelcomeSlider';
 import WelcomeBurger from './components/welcome-burger/WelcomeBurger';
+import WelcomeHeader from './components/welcome-header/WelcomeHeader';
+import WelcomeGreetings from './components/welcome-greetings/WelcomeGreetings';
+import BurgerContext from './components/context';
 
 function Welcome() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = (e: Event) => {
+      const target = e.target as Window;
+      if (target.outerWidth > 1919 && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isOpen]);
+
   return (
     <section className={styles.welcome} id="Welcome">
       <div className={`${styles.container} container`}>
-        <header className={styles.welcome__header}>
-          <Logo />
-          <ul className={styles.header__navigation}>
-            <li>
-              <Link href="#visiting" className={styles.header__link}>
-                Visiting
-              </Link>
-            </li>
-            <li>
-              <Link href="#Explore" className={styles.header__link}>
-                Explore
-              </Link>
-            </li>
-            <li>
-              <Link href="#Video" className={styles.header__link}>
-                Video
-              </Link>
-            </li>
-            <li>
-              <Link href="#Gallery" className={styles.header__link}>
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link href="#Tickets" className={styles.header__link}>
-                Tickets
-              </Link>
-            </li>
-            <li>
-              <Link href="#Contacts" className={styles.header__link}>
-                Contacts
-              </Link>
-            </li>
-          </ul>
-          <div className={styles.header__burger} />
-        </header>
+        <BurgerContext.Provider value={{ isOpen, setIsOpen }}>
+          <WelcomeHeader />
+        </BurgerContext.Provider>
+
         <div className={styles.welcome__content}>
-          <div className={styles.welcome__greeting}>
-            <H2 type={TitleType.REGULAR} colorType={TitleColorType.LIGHT}>
-              Welcome
-              <br />
-              to the Louvre
-            </H2>
-            <p className={styles.welcome__addition}>
-              From the castle to the museum
-            </p>
-            <Link
-              href="/about"
-              target="_blank"
-              className={styles.welcome__button_main}
-            >
-              Discover the Louvre
-            </Link>
-          </div>
+          <WelcomeGreetings isOpen={isOpen} />
           <WelcomeSlider />
         </div>
-        <WelcomeBurger />
+        <WelcomeBurger isOpen={isOpen} />
       </div>
     </section>
   );

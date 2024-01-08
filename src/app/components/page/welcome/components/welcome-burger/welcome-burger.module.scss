@@ -7,7 +7,7 @@
     display: flex;
     height: 585px;
     width: 100%;
-    background-color: black;
+    background-color: transparent;
     position: absolute;
     bottom: 0;
     z-index: 8888;
@@ -20,6 +20,7 @@
 
   @media (max-width: 1023px) {
     height: 861px;
+    background-color: black;
   }
 
   @media (max-width: 767px) {
@@ -50,7 +51,16 @@
   }
 }
 
-.images {
+.welcome__socials {
+  display: none;
+  @media (max-width: 1023px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.burger__images {
   display: none;
 
   @media (max-width: 1023px) {

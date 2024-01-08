@@ -11,14 +11,16 @@ import Tours from './components/page/tours/Tours';
 import Explore from './components/page/explore/Explore';
 import Journey from './components/page/journey/Journey';
 import Welcome from './components/page/welcome/Welcome';
+import Gallery from './components/page/gallery/Gallery';
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <Welcome />
-      <Journey />
-      <Explore />
       <Tours />
+      <Explore />
+      <Journey />
+      <Gallery />
       <Tickets />
       <Parallax />
       <Contacts />
