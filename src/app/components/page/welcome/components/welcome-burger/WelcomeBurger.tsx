@@ -1,18 +1,28 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import SocialsList from '@/app/components/shared/socials-list/SocialsList';
 import Image from 'next/image';
 import styles from './welcome-burger.module.scss';
 
 function WelcomeBurger({ isOpen }: { isOpen: boolean }) {
-  if (!isOpen) {
-    return null;
-  }
+  const [onTransition, setOnTransition] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      setOnTransition(true);
+    } else {
+      setOnTransition(false);
+    }
+  }, [isOpen]);
 
   return (
-    <div className={styles.welcome__content_burger}>
+    <div
+      className={`${styles.welcome__content_burger} ${
+        onTransition ? styles.open : ''
+      }  ${onTransition === false ? styles.close : ''}`}
+    >
       <ul className={styles.burger__navigation}>
         <li>
           <Link href="#visiting" className={styles.burger__link}>

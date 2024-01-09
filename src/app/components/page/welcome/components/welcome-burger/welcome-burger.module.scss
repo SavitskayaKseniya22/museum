@@ -16,6 +16,42 @@
     justify-content: space-between;
     padding: 35px 35px;
     gap: 30px;
+    left: -100%;
+    opacity: 0;
+
+    &.open {
+      @keyframes moving-right {
+        from {
+          left: -100%;
+          opacity: 0;
+        }
+
+        to {
+          left: 0;
+          opacity: 1;
+        }
+      }
+
+      animation-name: moving-right;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes moving-left {
+      from {
+        left: 0;
+        opacity: 1;
+      }
+
+      to {
+        left: -100%;
+        opacity: 0;
+      }
+    }
+
+    animation-name: moving-left;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
   }
 
   @media (max-width: 1023px) {

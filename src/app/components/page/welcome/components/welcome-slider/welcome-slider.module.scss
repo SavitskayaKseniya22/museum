@@ -102,6 +102,7 @@
 
       &:disabled {
         opacity: 0.2;
+        pointer-events: none;
       }
 
       @media (max-width: 1919px) {
@@ -133,6 +134,7 @@
 
       &:disabled {
         opacity: 0.2;
+        pointer-events: none;
       }
     }
 

@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import styles from './player.module.scss';
 
-function Player() {
+function Player({ src }: { src: string }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -127,14 +127,10 @@ function Player() {
             }
           }}
         >
-          <track default kind="captions" src="video/video0.mp4" />
+          <track default kind="captions" src={src || 'video/video0.mp4'} />
           <source
-            src="video/video0.mp4"
+            src={src || 'video/video0.mp4'}
             type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-          />
-          <source
-            src="video/video0.webm"
-            type='video/webm; codecs="vp8, vorbis"'
           />
         </video>
       </div>
