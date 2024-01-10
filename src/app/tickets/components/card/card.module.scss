@@ -20,13 +20,15 @@
   padding: 15px 20px;
   position: absolute;
   border-radius: 5px;
-
-  font: normal 400 12px/14px 'Roboto';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
 
   @media (max-width: 767px) {
     width: 330px;
     height: 209px;
-    font: normal 400 11px/13px 'Roboto';
+    font-size: 11px;
+    line-height: 13px;
   }
 
   input {
@@ -101,7 +103,9 @@
     }
 
     p {
-      font: normal 400 10px/12px 'Roboto';
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 12px;
       width: 55px;
     }
   }

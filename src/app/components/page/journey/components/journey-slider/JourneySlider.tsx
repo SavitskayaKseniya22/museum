@@ -17,7 +17,7 @@ const widthSliderItem = [454, 300, 354, 180];
 const gaps = [40, 40, 20, 20];
 
 function JourneySlider({ content }: { content: Array<number> }) {
-  const [slide, setSlide] = useState(4);
+  const [slide, setSlide] = useState(0);
 
   const [onTransition, setOnTransition] = useState<AnimationType | null>(null);
 

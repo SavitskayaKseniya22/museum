@@ -20,10 +20,8 @@
       display: flex;
       flex-direction: column;
       gap: 25px;
-
-      font:
-        normal 300 22px/38px 'Roboto',
-        sans-serif;
+      font-size: 22px;
+      line-height: 38px;
 
       .explore__info_emphasis {
         color: $gold-color;
@@ -42,9 +40,7 @@
 
       .explore__info {
         gap: 0;
-        font:
-          normal 300 20px/38px 'Roboto',
-          sans-serif;
+        font-size: 20px;
       }
     }
   }

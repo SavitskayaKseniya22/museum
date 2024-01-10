@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -23,8 +21,10 @@ function Tours({ tour }: { tour: TourType }) {
           alt={tour.name}
           className={styles.tour__preview}
         />
-        <H3 className={styles.tour__title}>{tour.name}</H3>
+
         <figcaption className={styles.tour__caption}>
+          <H3 className={styles.tour__title}>{tour.name}</H3>
+
           <span className={styles.tour__caption_main}>360° Virtual Tour</span>
 
           <span className={styles.tour__caption_addition}>

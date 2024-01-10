@@ -32,32 +32,28 @@
 .slider__controls {
   width: 600px;
   height: 120px;
-  background-color: black;
+  background-color: $black-color;
   color: #ffffff;
 
-  font:
-    normal 400 22px/40px 'Roboto',
-    sans-serif;
-
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
-
   position: absolute;
   bottom: 0;
   right: 0;
   z-index: 5555;
-
   gap: 55px;
 
   @media (max-width: 1919px) {
     gap: 45px;
     width: 100%;
 
-    font:
-      normal 400 20px/40px 'Roboto',
-      sans-serif;
+    font-size: 20px;
+    line-height: 40px;
   }
 
   @media (max-width: 1023px) {
@@ -71,9 +67,8 @@
     width: 230px;
     gap: 25px;
 
-    font:
-      normal 400 16px/40px 'Roboto',
-      sans-serif;
+    font-size: 16px;
+    line-height: 40px;
   }
 
   .slider__paginator {

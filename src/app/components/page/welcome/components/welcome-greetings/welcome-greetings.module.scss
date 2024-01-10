@@ -16,32 +16,28 @@
 }
 
 .welcome__addition {
-  font:
-    normal 300 28px/33px 'Roboto',
-    sans-serif;
+  font-size: 28px;
+  line-height: 33px;
   letter-spacing: 2px;
   margin: 25px 0 75px;
   color: white;
 
   @media (max-width: 1919px) {
-    font:
-      normal 300 24px/28px 'Roboto',
-      sans-serif;
+    font-size: 24px;
+    line-height: 28px;
     margin: 25px 0 50px;
   }
 
   @media (max-width: 1023px) {
-    font:
-      normal 300 20px/20px 'Roboto',
-      sans-serif;
+    font-size: 20px;
+    line-height: 20px;
 
     margin: 25px 0 0;
   }
 
   @media (max-width: 767px) {
-    font:
-      normal 300 16px/19px 'Roboto',
-      sans-serif;
+    font-size: 16px;
+    line-height: 19px;
   }
 }
 
@@ -50,9 +46,8 @@
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font:
-    normal 300 22px/26px 'Roboto',
-    sans-serif;
+  font-size: 22px;
+  line-height: 26px;
   letter-spacing: 2px;
   width: 360px;
   height: 75px;
@@ -64,9 +59,8 @@
   }
 
   @media (max-width: 1919px) {
-    font:
-      normal 300 20px/23px 'Roboto',
-      sans-serif;
+    font-size: 20px;
+    line-height: 23px;
     width: 300px;
     height: 60px;
   }

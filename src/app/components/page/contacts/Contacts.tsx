@@ -20,7 +20,7 @@ function Contacts() {
         </H2>
 
         <div className={styles.content}>
-          <H4 className={styles.title__h4}>
+          <H4>
             Palais Royal
             <br />
             Musee du Louvre

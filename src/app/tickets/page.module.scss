@@ -48,7 +48,9 @@
 
   .header__addition {
     padding: 15px 0 10px;
-    font: normal 400 18px/21px 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
     color: $red-color;
     border-bottom: 3px solid $red-color;
   }
@@ -97,9 +99,8 @@
         appearance: none;
         cursor: pointer;
 
-        font:
-          normal normal 18px/21px 'Roboto',
-          sans-serif;
+        font-size: 18px;
+        line-height: 21px;
       }
 
       &.counters {
@@ -136,9 +137,8 @@
           padding-left: 0;
           height: 20px;
 
-          font:
-            normal normal 18px/21px 'Roboto',
-            sans-serif;
+          font-size: 18px;
+          line-height: 21px;
         }
       }
     }
@@ -167,11 +167,14 @@
     position: relative;
 
     h4 {
-      font: normal 500 32px/37px 'Roboto';
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 37px;
     }
 
     p {
-      font: normal 500 22px/26px 'Roboto';
+      font-size: 22px;
+      line-height: 26px;
       color: $red-color;
     }
 
@@ -194,14 +197,15 @@
       .summary {
         display: flex;
         gap: 15px;
-        font:
-          normal 300 18px/21px 'Roboto',
-          sans-serif;
+        font-size: 18px;
+        line-height: 21px;
       }
     }
 
     .note {
-      font: normal 400 22px/26px 'Roboto';
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 26px;
       display: flex;
       gap: 5px;
       flex-direction: column;
@@ -235,13 +239,10 @@
     }
 
     .bill {
-      display: block;
       display: flex;
       justify-content: space-between;
       color: #030303;
-      font-family: Roboto;
       font-size: 32px;
-      font-style: normal;
       font-weight: 400;
       line-height: normal;
       padding-top: 10px;

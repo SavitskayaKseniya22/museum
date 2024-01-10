@@ -3,7 +3,10 @@
 'use client';
 
 import React, { ReactNode } from 'react';
+import { Forum } from 'next/font/google';
 import styles from './h2.module.scss';
+
+const forum = Forum({ weight: '400', subsets: ['latin'], style: 'normal' });
 
 export enum TitleType {
   UNDERLINED = 'underlined',
@@ -29,7 +32,7 @@ function H2({
 }) {
   return (
     <h2
-      className={`${styles.h2} ${styles[type]} ${styles[colorType]} ${className}`}
+      className={`${styles.h2} ${forum.className} ${styles[type]} ${styles[colorType]} ${className}`}
     >
       {children}
     </h2>
