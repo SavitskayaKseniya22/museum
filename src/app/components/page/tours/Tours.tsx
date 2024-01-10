@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import styles from './tours.module.scss';
 import Tour from './components/tour/Tour';

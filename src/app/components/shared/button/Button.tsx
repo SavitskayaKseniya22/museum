@@ -1,8 +1,6 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/require-default-props */
 
-'use client';
-
 import React, { ReactNode } from 'react';
 import styles from './button.module.scss';
 
@@ -21,7 +19,7 @@ function Button({
   children: ReactNode;
   buttonType: ButtonType;
   className?: string;
-  globalType?: 'submit' | 'button';
+  globalType?: 'submit' | 'button' | 'reset' | undefined;
   isDisabled?: boolean;
 }) {
   return (

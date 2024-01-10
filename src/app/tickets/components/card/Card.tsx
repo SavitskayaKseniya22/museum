@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-'use client';
-
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Inputs } from '@/app/interfaces';

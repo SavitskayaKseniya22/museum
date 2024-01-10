@@ -1,7 +1,5 @@
 /* eslint-disable react/require-default-props */
 
-'use client';
-
 import React, { ReactNode } from 'react';
 import styles from './h4.module.scss';
 

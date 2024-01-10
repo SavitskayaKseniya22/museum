@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 
-'use client';
-
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './welcome-slider.module.scss';

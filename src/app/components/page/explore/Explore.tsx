@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
 import styles from './explore.module.scss';

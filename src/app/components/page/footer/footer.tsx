@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import styles from './footer.module.scss';
 import Logo from '../../shared/logo/Logo';
@@ -12,7 +10,7 @@ function Footer() {
       <div className={`${styles.container} container`}>
         <Logo />
         <nav className={styles.content}>
-          <Navigation place="footer" />
+          <Navigation className={styles.footer__nav} />
           <SocialsList />
         </nav>
       </div>

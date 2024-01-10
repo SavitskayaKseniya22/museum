@@ -1,12 +1,10 @@
-'use client';
-
 import React from 'react';
 import styles from './navigation.module.scss';
 import NavLink from '../nav-link/NavLink';
 
-function Navigation({ place }: { place: string }) {
+function Navigation({ className }: { className: string }) {
   return (
-    <ul className={`${styles.navigation} ${styles[`in-${place}`]}`}>
+    <ul className={`${styles.navigation} ${className}`}>
       <li>
         <NavLink href="#Visiting">Visiting</NavLink>
       </li>

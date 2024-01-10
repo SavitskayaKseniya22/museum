@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import ReactMap, { FullscreenControl, Marker } from 'react-map-gl';
 import styles from './map.module.scss';

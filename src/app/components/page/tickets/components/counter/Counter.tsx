@@ -1,7 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import { useFormContext } from 'react-hook-form';

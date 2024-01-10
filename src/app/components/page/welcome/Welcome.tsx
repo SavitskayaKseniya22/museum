@@ -1,7 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 
-'use client';
-
 import React, { useEffect, useState } from 'react';
 import styles from './welcome.module.scss';
 import WelcomeSlider from './components/welcome-slider/WelcomeSlider';

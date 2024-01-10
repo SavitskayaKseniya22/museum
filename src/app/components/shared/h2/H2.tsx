@@ -1,7 +1,5 @@
 /* eslint-disable react/require-default-props */
 
-'use client';
-
 import React, { ReactNode } from 'react';
 import { Forum } from 'next/font/google';
 import styles from './h2.module.scss';

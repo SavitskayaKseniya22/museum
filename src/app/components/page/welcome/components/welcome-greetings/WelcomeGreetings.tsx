@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import H2, { TitleType, TitleColorType } from '@/app/components/shared/h2/H2';

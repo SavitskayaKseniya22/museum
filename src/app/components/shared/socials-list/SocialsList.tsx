@@ -1,13 +1,13 @@
-'use client';
+/* eslint-disable react/require-default-props */
 
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './socials-list.module.scss';
 
-function SocialsList() {
+function SocialsList({ className }: { className?: string }) {
   return (
-    <ul className={styles.socials__list}>
+    <ul className={`${styles.socials__list} ${className}`}>
       <li>
         <Link
           href="https://www.youtube.com/user/louvre"
