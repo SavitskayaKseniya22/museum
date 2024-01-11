@@ -11,13 +11,18 @@ export const roboto = Roboto({
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <Providers>
-        <body className={roboto.className}>{children}</body>
+        <body className={roboto.className}>
+          {children}
+          {modal}
+        </body>
       </Providers>
     </html>
   );

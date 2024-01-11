@@ -8,11 +8,12 @@ export interface TourType {
   name: string;
   preview: string;
   link: string;
+  i: number;
 }
 
-function Tours({ tour }: { tour: TourType }) {
+function Tour({ tour }: { tour: TourType }) {
   return (
-    <Link href={tour.link} target="_blank">
+    <Link href={`/map/${tour.i}`} scroll={false}>
       <figure className={styles.tour__content}>
         <Image
           src={tour.preview}
@@ -34,4 +35,4 @@ function Tours({ tour }: { tour: TourType }) {
   );
 }
 
-export default Tours;
+export default Tour;

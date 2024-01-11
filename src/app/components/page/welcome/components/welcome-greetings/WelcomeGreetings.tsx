@@ -16,9 +16,10 @@ function WelcomeGreetings({ isOpen }: { isOpen: boolean }) {
       </H2>
       <p className={styles.welcome__addition}>From the castle to the museum</p>
       <Link
-        href="/about"
-        target="_blank"
+        href="/map/6"
         className={styles.welcome__button_main}
+        passHref
+        scroll={false}
       >
         Discover the Louvre
       </Link>

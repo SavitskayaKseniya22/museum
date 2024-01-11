@@ -10,7 +10,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPreData } from '@/app/services/ticketsSlice';
 import { RootState } from '@/app/services/store';
-import { prices } from '@/app/tickets/page';
+import { prices } from '@/app/order/components/order/Order';
 import styles from './tickets.module.scss';
 import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
 import H4 from '../../shared/h4/H4';
@@ -130,9 +130,9 @@ function Tickets() {
               €
             </H4>
 
-            <Button buttonType={ButtonType.SUB}>
-              <Link href="./tickets">Buy Now</Link>
-            </Button>
+            <Link href="/order" scroll={false}>
+              <Button buttonType={ButtonType.SUB}>Buy Now</Button>
+            </Link>
           </div>
         </form>
       </div>
