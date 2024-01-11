@@ -8,6 +8,7 @@ html {
   font-size: 15px;
   scroll-behavior: smooth;
   width: 100vw;
+  font-weight: 300;
 }
 
 body {
@@ -33,13 +34,9 @@ ul {
 
 a {
   text-decoration: none;
-  color: $black-color;
+  color: inherit;
   margin: 0;
   padding: 0;
-
-  &:hover {
-    color: $gold-color;
-  }
 }
 
 button {
@@ -56,16 +53,21 @@ button {
   padding: 0;
 
   @media (max-width: 1919px) {
-    width: 984px;
+    width: 1024px;
   }
 
   @media (max-width: 1023px) {
-    width: 728px;
+    width: 768px;
     font-size: 18px;
   }
 
   @media (max-width: 767px) {
-    width: 380px;
+    width: 420px;
+    font-size: 16px;
+  }
+
+  @media (max-width: 419px) {
+    width: 320px;
     font-size: 16px;
   }
 }

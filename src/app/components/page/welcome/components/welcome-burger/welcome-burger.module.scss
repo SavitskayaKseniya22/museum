@@ -63,24 +63,23 @@
     height: 544px;
     padding: 35px 35px 25px 35px;
   }
+  @media (max-width: 419px) {
+    height: 480px;
+    padding: 15px 5px 15px 5px;
+    align-items: center;
+  }
 }
 
-.burger__navigation {
+.burger__nav {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
   gap: 24px;
+  width: 125px;
 
-  .burger__link {
-    color: #fff;
-    font-size: 20px;
-    line-height: normal;
-    letter-spacing: 2px;
-    display: flex;
-    width: 125px;
-    justify-content: space-between;
-    align-items: center;
+  li {
+    background-image: url('/svg/icon-arrow_nav.svg');
+    background-repeat: no-repeat;
+    background-position: center right;
   }
 }
 
@@ -112,7 +111,7 @@
     margin-top: 30px;
 
     @media (max-width: 767px) {
-      margin-top: 20px;
+      display: none;
     }
   }
 

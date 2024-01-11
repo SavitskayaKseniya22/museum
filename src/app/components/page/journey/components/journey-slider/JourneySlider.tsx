@@ -13,15 +13,15 @@ enum AnimationType {
   'RIGHT',
 }
 
-const widthSliderItem = [454, 300, 354, 180];
-const gaps = [40, 40, 20, 20];
+const widthSliderItem = [454, 300, 354, 180, 130];
+const gaps = [40, 40, 20, 20, 20];
 
 function JourneySlider({ content }: { content: Array<number> }) {
   const [slide, setSlide] = useState(0);
 
   const [onTransition, setOnTransition] = useState<AnimationType | null>(null);
 
-  const [widthRange, setWidthRange] = useState<null | 0 | 1 | 2 | 3>(null);
+  const [widthRange, setWidthRange] = useState<null | 0 | 1 | 2 | 3 | 4>(null);
 
   const transitionTime = useRef(0.25);
 
@@ -34,8 +34,10 @@ function JourneySlider({ content }: { content: Array<number> }) {
         setWidthRange(1);
       } else if (width < 1024 && width >= 768) {
         setWidthRange(2);
-      } else if (width < 768) {
+      } else if (width < 768 && width >= 420) {
         setWidthRange(3);
+      } else if (width < 420) {
+        setWidthRange(4);
       }
     };
 
@@ -77,38 +79,37 @@ function JourneySlider({ content }: { content: Array<number> }) {
           <ul
             style={{
               left: `-${(() => {
-                if (slide >= 0) {
-                  if (slide === content.length - 1 && widthRange < 2) {
-                    return (
-                      widthSliderItem[widthRange] * (slide - 2) +
-                      gaps[widthRange] * (slide - 2) -
-                      1
-                    );
-                  }
-
-                  if (
-                    (slide === content.length - 2 && widthRange < 2) ||
-                    (slide === content.length - 1 && widthRange >= 2)
-                  ) {
-                    return (
-                      widthSliderItem[widthRange] * (slide - 1) +
-                      gaps[widthRange] * (slide - 1) -
-                      1
-                    );
-                  }
-
-                  if (
-                    slide <= content.length - 3 ||
-                    (slide === content.length - 2 && widthRange >= 2)
-                  ) {
-                    return (
-                      widthSliderItem[widthRange] * slide +
-                      gaps[widthRange] * slide -
-                      1
-                    );
-                  }
-
+                if (slide < 0) {
                   return 0;
+                }
+
+                if (slide === content.length - 1 && widthRange < 2) {
+                  return (
+                    widthSliderItem[widthRange] * (slide - 2) +
+                    gaps[widthRange] * (slide - 2) -
+                    1
+                  );
+                }
+
+                if (
+                  (slide === content.length - 2 && widthRange < 2) ||
+                  (slide === content.length - 1 && widthRange >= 2)
+                ) {
+                  return (
+                    widthSliderItem[widthRange] * (slide - 1) +
+                    gaps[widthRange] * (slide - 1) -
+                    1
+                  );
+                }
+
+                if (
+                  slide <= content.length - 3 ||
+                  (slide === content.length - 2 && widthRange >= 2)
+                ) {
+                  return (
+                    widthSliderItem[widthRange] * slide +
+                    gaps[widthRange] * slide
+                  );
                 }
 
                 return 0;

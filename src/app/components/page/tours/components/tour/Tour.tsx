@@ -24,9 +24,7 @@ function Tours({ tour }: { tour: TourType }) {
 
         <figcaption className={styles.tour__caption}>
           <H3 className={styles.tour__title}>{tour.name}</H3>
-
           <span className={styles.tour__caption_main}>360° Virtual Tour</span>
-
           <span className={styles.tour__caption_addition}>
             Google Street Panorama View
           </span>

@@ -5,7 +5,7 @@ import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
 function Gallery() {
   return (
     <section className={styles.gallery} id="Gallery">
-      <div className={`${styles.container} container`}>
+      <div className={`${styles.gallery__container} container`}>
         <H2 colorType={TitleColorType.LIGHT} type={TitleType.REGULAR}>
           Art Gallery
         </H2>

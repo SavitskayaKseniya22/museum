@@ -9,13 +9,13 @@ const videoArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function Journey() {
   return (
-    <section className={styles.journey} id="Video">
-      <div className={`${styles.container} container`}>
-        <div className={styles.content}>
+    <section id="Video">
+      <div className={`${styles.journey__container} container`}>
+        <div className={styles.journey__content}>
           <H2 type={TitleType.REGULAR} colorType={TitleColorType.GOLD}>
             Video journey
           </H2>
-          <p>
+          <p className={styles.journey__info}>
             Enter and visit one of the most famous museums in the world and
             enjoy masterpieces such as Mona Lisa or Hammurabi&apos;s Code
           </p>

@@ -4,8 +4,12 @@
   background-color: black;
 }
 
-.container {
+.welcome__container {
   position: relative;
+
+  @media (max-width: 1920px) {
+    padding: 0 20px;
+  }
 }
 
 .welcome__content {
@@ -26,5 +30,9 @@
 
   @media (max-width: 767px) {
     height: 544px;
+  }
+
+  @media (max-width: 419px) {
+    height: 480px;
   }
 }

@@ -1,9 +1,7 @@
-'use client';
-
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import SocialsList from '@/app/components/shared/socials-list/SocialsList';
 import Image from 'next/image';
+import Navigation from '@/app/components/shared/navigation/Navigation';
 import styles from './welcome-burger.module.scss';
 
 function WelcomeBurger({ isOpen }: { isOpen: boolean }) {
@@ -23,74 +21,7 @@ function WelcomeBurger({ isOpen }: { isOpen: boolean }) {
         onTransition ? styles.open : ''
       }  ${onTransition === false ? styles.close : ''}`}
     >
-      <ul className={styles.burger__navigation}>
-        <li>
-          <Link href="#visiting" className={styles.burger__link}>
-            Visiting
-            <Image
-              src="/svg/icon-arrow_nav.svg"
-              width={12}
-              height={12}
-              alt="Picture of the author"
-            />
-          </Link>
-        </li>
-        <li>
-          <Link href="#Explore" className={styles.burger__link}>
-            Explore
-            <Image
-              src="/svg/icon-arrow_nav.svg"
-              width={12}
-              height={12}
-              alt="Picture of the author"
-            />
-          </Link>
-        </li>
-        <li>
-          <Link href="#Video" className={styles.burger__link}>
-            Video
-            <Image
-              src="/svg/icon-arrow_nav.svg"
-              width={12}
-              height={12}
-              alt="Picture of the author"
-            />
-          </Link>
-        </li>
-        <li>
-          <Link href="#Gallery" className={styles.burger__link}>
-            Gallery
-            <Image
-              src="/svg/icon-arrow_nav.svg"
-              width={12}
-              height={12}
-              alt="Picture of the author"
-            />
-          </Link>
-        </li>
-        <li>
-          <Link href="#Tickets" className={styles.burger__link}>
-            Tickets
-            <Image
-              src="/svg/icon-arrow_nav.svg"
-              width={12}
-              height={12}
-              alt="Picture of the author"
-            />
-          </Link>
-        </li>
-        <li>
-          <Link href="#Contacts" className={styles.burger__link}>
-            Contacts
-            <Image
-              src="/svg/icon-arrow_nav.svg"
-              width={12}
-              height={12}
-              alt="Picture of the author"
-            />
-          </Link>
-        </li>
-      </ul>
+      <Navigation className={styles.burger__nav} />
 
       <div className={styles.burger__images}>
         <div
@@ -126,9 +57,7 @@ function WelcomeBurger({ isOpen }: { isOpen: boolean }) {
         </div>
       </div>
 
-      <div className={styles.welcome__socials}>
-        <SocialsList />
-      </div>
+      <SocialsList className={styles.welcome__socials} />
     </div>
   );
 }

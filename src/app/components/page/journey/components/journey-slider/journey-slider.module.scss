@@ -4,40 +4,41 @@
   align-items: center;
   gap: 40px;
   overflow: hidden;
+  width: 1440px;
+
+  @media (max-width: 1919px) {
+    width: 984px;
+  }
 
   @media (max-width: 1023px) {
+    width: 728px;
     gap: 20px;
   }
 
   @media (max-width: 767px) {
+    width: 380px;
     gap: 40px;
+  }
+
+  @media (max-width: 419px) {
+    width: 280px;
   }
 }
 
 .slider__content {
-  height: 254px;
   width: 100%;
   overflow: hidden;
   position: relative;
 
-  @media (max-width: 1919px) {
-    height: 170px;
-  }
-
-  @media (max-width: 1023px) {
-    height: 200px;
-  }
-
-  @media (max-width: 767px) {
-    height: 100px;
-  }
-
   ul {
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     position: relative;
+  }
+
+  @media (max-width: 419px) {
+    width: 280px;
   }
 }
 

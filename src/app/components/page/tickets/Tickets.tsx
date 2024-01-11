@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
+'use client';
+
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -43,20 +45,20 @@ function Tickets() {
 
   return (
     <section className={styles.tickets} id="Tickets">
-      <div className={`${styles.container} container`}>
+      <div className={`${styles.tickets__container} container`}>
         <H2
           type={TitleType.UNDERLINED}
           colorType={TitleColorType.GOLD}
-          className={styles.title__h2}
+          className={styles.tickets__title}
         >
           Buy tickets
         </H2>
 
-        <div className={styles.container__image}>
+        <div className={styles.tickets__image}>
           <Image src="/img/img-tickets.jpg" fill alt="Piece of art" />
         </div>
 
-        <form className={styles.content} noValidate>
+        <form className={styles.tickets__content} noValidate>
           <div className={styles['ticket-type']}>
             <H4>Ticket Type</H4>
 

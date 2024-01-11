@@ -8,6 +8,7 @@
   text-transform: uppercase;
   margin: 0;
   white-space: nowrap;
+  width: 100%;
 
   @media (max-width: 1919px) {
     font-size: 50px;
@@ -21,6 +22,10 @@
   @media (max-width: 767px) {
     font-size: 28px;
     line-height: 40px;
+  }
+
+  @media (max-width: 419px) {
+    white-space: unset;
   }
 
   &.dark {

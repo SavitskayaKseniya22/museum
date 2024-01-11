@@ -14,19 +14,11 @@
     padding: 35px 0;
   }
 
-  .header__navigation {
+  .header__nav {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 55px;
-
-    .header__link {
-      color: $white-color;
-      font-size: 22px;
-      font-weight: 100;
-      line-height: normal;
-      letter-spacing: 2px;
-    }
 
     @media (max-width: 1919px) {
       display: none;

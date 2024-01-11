@@ -7,9 +7,9 @@ import SocialsList from '../../shared/socials-list/SocialsList';
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={`${styles.container} container`}>
+      <div className={`${styles.footer__container} container`}>
         <Logo />
-        <nav className={styles.content}>
+        <nav className={styles.footer__content}>
           <Navigation className={styles.footer__nav} />
           <SocialsList />
         </nav>

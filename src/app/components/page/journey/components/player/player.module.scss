@@ -2,6 +2,7 @@
 
 .player {
   position: relative;
+  width: 100%;
 
   &:fullscreen {
     display: flex;
@@ -52,28 +53,11 @@
 }
 
 .player__content {
-  width: 1440px;
-  height: 650px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   background-color: black;
-
-  @media (max-width: 1919px) {
-    width: 984px;
-    height: 444px;
-  }
-
-  @media (max-width: 1023px) {
-    width: 728px;
-    height: 329px;
-  }
-
-  @media (max-width: 767px) {
-    width: 380px;
-    height: 172px;
-  }
 
   .player__video {
     max-width: 100%;

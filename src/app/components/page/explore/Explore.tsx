@@ -6,7 +6,7 @@ import Comparition from './components/comparison/Comparison';
 function Explore() {
   return (
     <section className={styles.explore} id="Explore">
-      <div className={`${styles.container} container`}>
+      <div className={`${styles.explore__container} container`}>
         <div className={styles.explore__content}>
           <H2 colorType={TitleColorType.LIGHT} type={TitleType.UNDERLINED}>
             Picture explore

@@ -38,8 +38,8 @@ export const tours = [
 
 function Tours() {
   return (
-    <section className={styles.tours} id="Tours">
-      <div className={`${styles.container} container`}>
+    <section id="Tours">
+      <div className={`${styles.tours__container} container`}>
         <H2 colorType={TitleColorType.GOLD} type={TitleType.UNDERLINED}>
           Virtual tour
         </H2>

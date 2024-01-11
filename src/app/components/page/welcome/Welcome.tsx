@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import styles from './welcome.module.scss';
 import WelcomeSlider from './components/welcome-slider/WelcomeSlider';
@@ -28,7 +30,7 @@ function Welcome() {
 
   return (
     <section className={styles.welcome} id="Welcome">
-      <div className={`${styles.container} container`}>
+      <div className={`${styles.welcome__container} container`}>
         <BurgerContext.Provider value={{ isOpen, setIsOpen }}>
           <WelcomeHeader />
         </BurgerContext.Provider>

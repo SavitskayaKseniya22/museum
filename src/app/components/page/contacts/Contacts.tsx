@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import styles from './contacts.module.scss';
@@ -8,16 +10,16 @@ import Map from './components/map/Map';
 function Contacts() {
   return (
     <section className={styles.contacts} id="Contacts">
-      <div className={`${styles.container} container`}>
+      <div className={`${styles.contacts__container} container`}>
         <H2
           type={TitleType.UNDERLINED}
           colorType={TitleColorType.GOLD}
-          className={styles.title__h2}
+          className={styles.contacts__title}
         >
           CONTACTS
         </H2>
 
-        <div className={styles.content}>
+        <div className={styles.contacts__content}>
           <H4>
             Palais Royal
             <br />

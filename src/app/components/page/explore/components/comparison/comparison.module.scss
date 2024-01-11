@@ -4,6 +4,20 @@
   height: 700px;
   flex-shrink: 0;
 
+  @media (max-width: 1919px) {
+    align-self: center;
+  }
+
+  @media (max-width: 767px) {
+    width: 380px;
+    height: 368px;
+  }
+
+  @media (max-width: 419px) {
+    width: 280px;
+    height: 280px;
+  }
+
   .comparition__image_first,
   .comparition__image_second {
     height: 100%;
@@ -34,14 +48,5 @@
     height: 100%;
     position: absolute;
     top: 0;
-  }
-
-  @media (max-width: 1919px) {
-    align-self: center;
-  }
-
-  @media (max-width: 767px) {
-    width: 380px;
-    height: 368px;
   }
 }
