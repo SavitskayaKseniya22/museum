@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Louvre landing page',
 };
 
-export const roboto = Roboto({
+const roboto = Roboto({
   weight: ['100', '300', '400', '500'],
   subsets: ['latin'],
   style: 'normal',
