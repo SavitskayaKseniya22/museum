@@ -4,15 +4,8 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import isVisible from '@/app/utils';
 import styles from './player.module.scss';
-
-export function isVisible(elem: HTMLElement) {
-  const coords = elem.getBoundingClientRect();
-  const windowHeight = document.documentElement.clientHeight;
-  const topVisible = coords.top > 0 && coords.top < windowHeight;
-  const bottomVisible = coords.bottom < windowHeight && coords.bottom > 0;
-  return topVisible || bottomVisible;
-}
 
 function Player({ number }: { number: number }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -95,11 +88,7 @@ function Player({ number }: { number: number }) {
     };
 
     const handleFullScreen = () => {
-      if (document.fullscreenElement) {
-        setIsFullScreen(true);
-      } else {
-        setIsFullScreen(false);
-      }
+      setIsFullScreen(!!document.fullscreenElement);
     };
 
     const videoConstantRef = videoContainerRef.current;
@@ -127,7 +116,7 @@ function Player({ number }: { number: number }) {
 
   return (
     <div ref={videoContainerRef} className={styles.player}>
-      <div className={styles.player__content} ref={videoContainerRef}>
+      <div className={styles.player__content}>
         <button
           className={styles.player__control}
           type="button"

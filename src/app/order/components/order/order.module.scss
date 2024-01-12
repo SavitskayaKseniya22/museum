@@ -21,6 +21,12 @@
     width: 360px;
     height: 1624px;
   }
+
+  @media (max-width: 419px) {
+    width: 280px;
+    height: 1565px;
+    row-gap: 20px;
+  }
 }
 
 .header {
@@ -62,6 +68,10 @@
 
   @media (max-width: 767px) {
     width: 360px;
+  }
+
+  @media (max-width: 419px) {
+    width: 280px;
   }
 
   .form__list {
@@ -155,6 +165,11 @@
     height: 885px;
   }
 
+  @media (max-width: 419px) {
+    width: 280px;
+    height: 840px;
+  }
+
   .overview {
     position: relative;
 
@@ -174,9 +189,13 @@
       position: absolute;
       top: 0;
       right: 0;
+
       @media (max-width: 767px) {
         width: 120px !important;
         height: 96px !important;
+      }
+      @media (max-width: 767px) {
+        display: none;
       }
     }
 
@@ -247,5 +266,9 @@
     align-self: flex-end;
     width: 220px;
     padding: 9px 38px;
+
+    @media (max-width: 419px) {
+      width: 100%;
+    }
   }
 }

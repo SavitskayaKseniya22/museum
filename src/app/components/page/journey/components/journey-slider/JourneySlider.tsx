@@ -133,6 +133,7 @@ function JourneySlider({ content }: { content: Array<number> }) {
                   slide === i ? styles.slider__item_active : ''
                 }`}
                 style={{ width: widthSliderItem[widthRange] }}
+                key={item}
               >
                 <Image
                   src={`/video/poster${item}.jpg`}

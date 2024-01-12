@@ -11,7 +11,7 @@ function WelcomeBurger({ isOpen }: { isOpen: boolean }) {
     if (isOpen) {
       setOnTransition(true);
     } else {
-      setOnTransition(false);
+      setOnTransition((a) => (a === null ? null : false));
     }
   }, [isOpen]);
 
@@ -27,33 +27,18 @@ function WelcomeBurger({ isOpen }: { isOpen: boolean }) {
         <div
           className={`${styles['image-container']} ${styles['image-container_first']}`}
         >
-          <Image
-            src="/img/burger/img-1.jpg"
-            fill
-            alt="Louvre"
-            objectFit="cover"
-          />
+          <Image src="/img/burger/img-1.jpg" fill alt="Louvre" />
         </div>
 
         <div
           className={`${styles['image-container']} ${styles['image-container_second']}`}
         >
-          <Image
-            src="/img/burger/img-2.jpg"
-            fill
-            alt="Cupola"
-            objectFit="cover"
-          />
+          <Image src="/img/burger/img-2.jpg" fill alt="Cupola" />
         </div>
         <div
           className={`${styles['image-container']} ${styles['image-container_third']}`}
         >
-          <Image
-            src="/img/burger/img-3.jpg"
-            fill
-            alt="Triangle"
-            objectFit="cover"
-          />
+          <Image src="/img/burger/img-3.jpg" fill alt="Triangle" />
         </div>
       </div>
 

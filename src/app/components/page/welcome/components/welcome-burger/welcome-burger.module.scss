@@ -37,21 +37,23 @@
       animation-fill-mode: forwards;
     }
 
-    @keyframes moving-left {
-      from {
-        left: 0;
-        opacity: 1;
+    &.close {
+      @keyframes moving-left {
+        from {
+          left: 0;
+          opacity: 1;
+        }
+
+        to {
+          left: -100%;
+          opacity: 0;
+        }
       }
 
-      to {
-        left: -100%;
-        opacity: 0;
-      }
+      animation-name: moving-left;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
     }
-
-    animation-name: moving-left;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
   }
 
   @media (max-width: 1023px) {
@@ -95,6 +97,10 @@
 
 .burger__images {
   display: none;
+
+  img {
+    object-fit: cover;
+  }
 
   @media (max-width: 1023px) {
     display: flex;

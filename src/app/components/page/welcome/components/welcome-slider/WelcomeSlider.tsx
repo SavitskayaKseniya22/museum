@@ -162,7 +162,6 @@ function WelcomeSlider() {
               src="/svg/icon-arrow-welcome-left.svg"
               fill
               alt="Arrow to the left"
-              objectFit="contain"
             />
           </button>
 
@@ -177,7 +176,6 @@ function WelcomeSlider() {
               src="/svg/icon-arrow-welcome-right.svg"
               fill
               alt="Arrow to the right"
-              objectFit="contain"
             />
           </button>
         </div>

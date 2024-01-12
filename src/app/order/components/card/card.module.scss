@@ -11,6 +11,15 @@
     width: 330px;
     height: 445px;
   }
+
+  @media (max-width: 419px) {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 }
 
 .card {
@@ -31,6 +40,14 @@
     line-height: 13px;
   }
 
+  @media (max-width: 419px) {
+    width: 100%;
+    height: auto;
+    font-size: 11px;
+    line-height: 13px;
+    padding: 0.5rem;
+  }
+
   input {
     height: 35px;
     border: none;
@@ -38,8 +55,12 @@
     appearance: none;
     width: 100%;
     padding: 0.5rem;
+
     &::placeholder {
       font-size: 10px;
+    }
+    @media (max-width: 767px) {
+      padding: 0.25rem;
     }
   }
 
@@ -52,6 +73,9 @@
     &.card__number,
     &.card__exp {
       width: 215px;
+      @media (max-width: 419px) {
+        width: 100%;
+      }
     }
 
     .card__exp-list {
@@ -73,6 +97,10 @@
   background-position:
     top 65px right 20px,
     top 34px right 20px;
+
+  @media (max-width: 419px) {
+    position: static;
+  }
 }
 
 .card_back {
@@ -88,6 +116,10 @@
     #030303 32%,
     #a4a4a3 32%
   );
+
+  @media (max-width: 419px) {
+    position: static;
+  }
 
   .card_back__container {
     height: 111px;
