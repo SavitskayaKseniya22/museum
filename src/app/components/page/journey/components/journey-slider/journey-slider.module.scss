@@ -47,6 +47,8 @@
   background-color: rgb(86, 92, 90);
   cursor: pointer;
   flex-shrink: 0;
+  position: relative;
+  opacity: 0.6;
 
   @media (max-width: 1919px) {
     height: 170px;
@@ -58,6 +60,25 @@
 
   @media (max-width: 767px) {
     height: 100px;
+  }
+
+  &.slider__item_active {
+    opacity: 1;
+  }
+
+  .slider-item__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+    transition: 0.3s;
+  }
+
+  &:hover {
+    .slider-item__icon {
+      opacity: 1;
+    }
   }
 }
 

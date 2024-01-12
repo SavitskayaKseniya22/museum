@@ -5,7 +5,7 @@ import styles from './journey.module.scss';
 import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
 import JourneySlider from './components/journey-slider/JourneySlider';
 
-const videoArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const videoArray = [0, 1, 2, 3, 4];
 
 function Journey() {
   return (

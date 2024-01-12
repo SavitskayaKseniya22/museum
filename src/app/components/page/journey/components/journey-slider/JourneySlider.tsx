@@ -72,8 +72,7 @@ function JourneySlider({ content }: { content: Array<number> }) {
 
   return (
     <div className={styles.slider}>
-      <Player src={content[slide] as unknown as string} />
-
+      <Player number={slide} />
       <div className={styles.slider__content}>
         {widthRange !== null && (
           <ul
@@ -86,8 +85,7 @@ function JourneySlider({ content }: { content: Array<number> }) {
                 if (slide === content.length - 1 && widthRange < 2) {
                   return (
                     widthSliderItem[widthRange] * (slide - 2) +
-                    gaps[widthRange] * (slide - 2) -
-                    1
+                    gaps[widthRange] * (slide - 2)
                   );
                 }
 
@@ -97,8 +95,7 @@ function JourneySlider({ content }: { content: Array<number> }) {
                 ) {
                   return (
                     widthSliderItem[widthRange] * (slide - 1) +
-                    gaps[widthRange] * (slide - 1) -
-                    1
+                    gaps[widthRange] * (slide - 1)
                   );
                 }
 
@@ -132,10 +129,24 @@ function JourneySlider({ content }: { content: Array<number> }) {
                 onClick={() => {
                   setSlide(i);
                 }}
-                className={styles.slider__item}
+                className={`${styles.slider__item} ${
+                  slide === i ? styles.slider__item_active : ''
+                }`}
                 style={{ width: widthSliderItem[widthRange] }}
               >
-                {item}
+                <Image
+                  src={`/video/poster${item}.jpg`}
+                  fill
+                  alt="Louvre video poster"
+                />
+
+                <Image
+                  src="/svg/icon-play.svg"
+                  width={45}
+                  height={45}
+                  alt="Play"
+                  className={styles['slider-item__icon']}
+                />
               </li>
             ))}
           </ul>
@@ -158,26 +169,11 @@ function JourneySlider({ content }: { content: Array<number> }) {
         <button
           type="button"
           onClick={() => {
-            if (
-              (slide < content.length - 2 &&
-                widthRange !== null &&
-                widthRange >= 2) ||
-              (slide < content.length - 3 &&
-                widthRange !== null &&
-                widthRange < 2)
-            ) {
+            if (slide < content.length - 1) {
               setOnTransition(AnimationType.LEFT);
             }
           }}
-          disabled={
-            !!onTransition ||
-            (slide >= content.length - 2 &&
-              widthRange !== null &&
-              widthRange >= 2) ||
-            (slide >= content.length - 3 &&
-              widthRange !== null &&
-              widthRange < 2)
-          }
+          disabled={!!onTransition || slide >= content.length - 1}
         >
           <Image
             src="/svg/icon-arrow_right.svg"

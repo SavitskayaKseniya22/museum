@@ -1,10 +1,20 @@
+/* eslint-disable jsx-a11y/media-has-caption */
+
 'use client';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import styles from './player.module.scss';
 
-function Player({ src }: { src: string }) {
+export function isVisible(elem: HTMLElement) {
+  const coords = elem.getBoundingClientRect();
+  const windowHeight = document.documentElement.clientHeight;
+  const topVisible = coords.top > 0 && coords.top < windowHeight;
+  const bottomVisible = coords.bottom < windowHeight && coords.bottom > 0;
+  return topVisible || bottomVisible;
+}
+
+function Player({ number }: { number: number }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -17,6 +27,11 @@ function Player({ src }: { src: string }) {
 
   const durationRangeRef = useRef<HTMLInputElement | null>(null);
 
+  useEffect(() => {
+    setIsPlaying(false);
+    videoRef.current?.load();
+  }, [number]);
+
   const togglePlayer = useCallback(() => {
     setIsPlaying((a) => !a);
     if (videoRef.current) {
@@ -28,17 +43,15 @@ function Player({ src }: { src: string }) {
     }
   }, [isPlaying]);
 
-  const toggleFullsCreen = useCallback(() => {
+  const toggleFullScreen = useCallback(() => {
     if (videoContainerRef.current) {
-      if (isFullScreen) {
+      if (document.fullscreenElement) {
         document.exitFullscreen();
-        setIsFullScreen(false);
       } else {
         videoContainerRef.current.requestFullscreen();
-        setIsFullScreen(true);
       }
     }
-  }, [isFullScreen]);
+  }, []);
 
   const toggleSound = useCallback(() => {
     setIsMuted((a) => !a);
@@ -57,33 +70,52 @@ function Player({ src }: { src: string }) {
 
   useEffect(() => {
     const handleUserKeyPress = (e: KeyboardEvent) => {
-      console.log(e.code);
-      if (e.code === 'Space') {
+      const isVisibleValue = isVisible(
+        videoContainerRef.current as HTMLElement
+      );
+
+      if (e.code === 'Space' && isVisibleValue) {
         e.preventDefault();
         togglePlayer();
       }
-      if (e.code === 'KeyM') {
+
+      if (e.code === 'KeyM' && (isVisibleValue || document.fullscreenElement)) {
         e.preventDefault();
         toggleSound();
       }
 
-      if (e.code === 'KeyF') {
+      if (
+        e.code === 'KeyF' &&
+        ((isVisibleValue && !document.fullscreenElement) ||
+          document.fullscreenElement)
+      ) {
         e.preventDefault();
-        toggleFullsCreen();
+        toggleFullScreen();
       }
-      /*
-      if (e.code === 'Escape' && isFullScreen) {
-        e.preventDefault();
-        toggleFullsCreen();
-      } */
     };
+
+    const handleFullScreen = () => {
+      if (document.fullscreenElement) {
+        setIsFullScreen(true);
+      } else {
+        setIsFullScreen(false);
+      }
+    };
+
+    const videoConstantRef = videoContainerRef.current;
 
     window.addEventListener('keydown', handleUserKeyPress);
 
+    videoConstantRef!.addEventListener('fullscreenchange', handleFullScreen);
+
     return () => {
       window.removeEventListener('keydown', handleUserKeyPress);
+      videoConstantRef!.removeEventListener(
+        'fullscreenchange',
+        handleFullScreen
+      );
     };
-  }, [isFullScreen, toggleFullsCreen, togglePlayer, toggleSound]);
+  }, [toggleFullScreen, togglePlayer, toggleSound]);
 
   useEffect(() => {
     if (durationRangeRef.current && videoRef.current) {
@@ -110,7 +142,8 @@ function Player({ src }: { src: string }) {
         </button>
 
         <video
-          poster="/img/img-poster.jpg"
+          preload="metadata"
+          poster={`/video/poster${number}.jpg`}
           className={styles.player__video}
           ref={videoRef}
           onDurationChange={(e) => {
@@ -126,11 +159,18 @@ function Player({ src }: { src: string }) {
                 .currentTime as unknown as string;
             }
           }}
+          onEnded={() => {
+            setIsPlaying(false);
+            videoRef.current?.load();
+          }}
         >
-          <track default kind="captions" src={src || 'video/video0.mp4'} />
           <source
-            src={src || 'video/video0.mp4'}
+            src={`video/video${number}.mp4` || 'video/video0.mp4'}
             type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+          />
+          <source
+            src={`video/video${number}.webm` || 'video/video0.webm'}
+            type='video/webm; codecs="vp8, vorbis"'
           />
         </video>
       </div>
@@ -207,7 +247,7 @@ function Player({ src }: { src: string }) {
         <button
           className={styles.player__controls_full}
           type="button"
-          onClick={toggleFullsCreen}
+          onClick={toggleFullScreen}
         >
           <Image
             src="/svg/icon-braces.svg"
