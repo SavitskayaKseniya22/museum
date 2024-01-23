@@ -25,6 +25,13 @@
 .journey__content {
   display: flex;
   align-items: center;
+  width: 100%;
+
+  @media (max-width: 1919px) {
+    h2 {
+      align-self: flex-start;
+    }
+  }
 }
 
 .journey__info {
