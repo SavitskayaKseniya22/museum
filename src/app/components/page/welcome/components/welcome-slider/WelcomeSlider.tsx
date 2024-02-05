@@ -79,13 +79,25 @@ function WelcomeSlider() {
           }`}
         >
           <li>
-            <Image src={images[slide.prev]} fill alt="Carousel image" />
+            <Image
+              src={images[slide.prev] || images[4]}
+              fill
+              alt="Carousel image"
+            />
           </li>
           <li>
-            <Image src={images[slide.active]} fill alt="Carousel image" />
+            <Image
+              src={images[slide.active] || images[0]}
+              fill
+              alt="Carousel image"
+            />
           </li>
           <li>
-            <Image src={images[slide.next]} fill alt="Carousel image" />
+            <Image
+              src={images[slide.next] || images[1]}
+              fill
+              alt="Carousel image"
+            />
           </li>
         </ul>
       </div>
