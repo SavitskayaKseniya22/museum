@@ -1,21 +1,17 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import styles from './contacts.module.scss';
-import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
-import H4 from '../../shared/h4/H4';
-import Map from './components/map/Map';
+import React from "react";
+import Link from "next/link";
+import styles from "./contacts.module.scss";
+import H2, { TitleColorType, TitleType } from "../../shared/h2/H2";
+import H4 from "../../shared/h4/H4";
+import Map from "./components/map/Map";
 
 function Contacts() {
   return (
     <section className={styles.contacts} id="Contacts">
       <div className={`${styles.contacts__container} container`}>
-        <H2
-          type={TitleType.UNDERLINED}
-          colorType={TitleColorType.GOLD}
-          className={styles.contacts__title}
-        >
+        <H2 type={TitleType.UNDERLINED} colorType={TitleColorType.GOLD} className={styles.contacts__title}>
           CONTACTS
         </H2>
 
@@ -37,9 +33,7 @@ function Contacts() {
             </li>
 
             <li>
-              <Link href="tel:+33(0)140205050">
-                phone: +33(0) 1 40 20 50 50
-              </Link>
+              <Link href="tel:+33(0)140205050">phone: +33(0) 1 40 20 50 50</Link>
             </li>
             <li>
               <Link href="mailto:info@louvre.fr">mail: info@louvre.fr</Link>

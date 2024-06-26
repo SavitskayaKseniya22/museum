@@ -1,20 +1,20 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import styles from './welcome-slider.module.scss';
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import styles from "./welcome-slider.module.scss";
 
 const images = [
-  '/img/welcome/img-1.jpg',
-  '/img/welcome/img-2.jpg',
-  '/img/welcome/img-3.jpg',
-  '/img/welcome/img-4.jpg',
-  '/img/welcome/img-5.jpg',
+  "/img/welcome/img-1.jpg",
+  "/img/welcome/img-2.jpg",
+  "/img/welcome/img-3.jpg",
+  "/img/welcome/img-4.jpg",
+  "/img/welcome/img-5.jpg",
 ];
 
 enum AnimationType {
-  'LEFT',
-  'RIGHT',
+  "LEFT",
+  "RIGHT",
 }
 
 function WelcomeSlider() {
@@ -69,35 +69,17 @@ function WelcomeSlider() {
       <div className={styles.slider__container}>
         <ul
           className={`${styles.slider__content} ${
-            onTransition === AnimationType.LEFT
-              ? styles.slider__onTransition_left
-              : ''
-          }  ${
-            onTransition === AnimationType.RIGHT
-              ? styles.slider__onTransition_right
-              : ''
-          }`}
+            onTransition === AnimationType.LEFT ? styles.slider__onTransition_left : ""
+          }  ${onTransition === AnimationType.RIGHT ? styles.slider__onTransition_right : ""}`}
         >
           <li>
-            <Image
-              src={images[slide.prev] || images[4]}
-              fill
-              alt="Carousel image"
-            />
+            <Image src={images[slide.prev] || images[4]} fill alt="Carousel image" />
           </li>
           <li>
-            <Image
-              src={images[slide.active] || images[0]}
-              fill
-              alt="Carousel image"
-            />
+            <Image src={images[slide.active] || images[0]} fill alt="Carousel image" />
           </li>
           <li>
-            <Image
-              src={images[slide.next] || images[1]}
-              fill
-              alt="Carousel image"
-            />
+            <Image src={images[slide.next] || images[1]} fill alt="Carousel image" />
           </li>
         </ul>
       </div>
@@ -112,9 +94,7 @@ function WelcomeSlider() {
         <div className={styles.slider__paginator}>
           <button
             type="button"
-            className={`${slide.active === 0 ? styles.slide_active : ''} ${
-              styles.slide
-            }`}
+            className={`${slide.active === 0 ? styles.slide_active : ""} ${styles.slide}`}
             onClick={() => {
               setSlide({ active: 0, next: 1, prev: 5 });
             }}
@@ -122,9 +102,7 @@ function WelcomeSlider() {
           />
           <button
             type="button"
-            className={`${slide.active === 1 ? styles.slide_active : ''} ${
-              styles.slide
-            }`}
+            className={`${slide.active === 1 ? styles.slide_active : ""} ${styles.slide}`}
             onClick={() => {
               setSlide({ active: 1, next: 2, prev: 0 });
             }}
@@ -132,9 +110,7 @@ function WelcomeSlider() {
           />
           <button
             type="button"
-            className={`${slide.active === 2 ? styles.slide_active : ''} ${
-              styles.slide
-            }`}
+            className={`${slide.active === 2 ? styles.slide_active : ""} ${styles.slide}`}
             onClick={() => {
               setSlide({ active: 2, next: 3, prev: 1 });
             }}
@@ -142,9 +118,7 @@ function WelcomeSlider() {
           />
           <button
             type="button"
-            className={`${slide.active === 3 ? styles.slide_active : ''} ${
-              styles.slide
-            }`}
+            className={`${slide.active === 3 ? styles.slide_active : ""} ${styles.slide}`}
             onClick={() => {
               setSlide({ active: 3, next: 4, prev: 2 });
             }}
@@ -152,9 +126,7 @@ function WelcomeSlider() {
           />
           <button
             type="button"
-            className={`${slide.active === 4 ? styles.slide_active : ''} ${
-              styles.slide
-            }`}
+            className={`${slide.active === 4 ? styles.slide_active : ""} ${styles.slide}`}
             onClick={() => {
               setSlide({ active: 4, next: 0, prev: 3 });
             }}
@@ -170,11 +142,7 @@ function WelcomeSlider() {
             }}
             disabled={onTransition !== null}
           >
-            <Image
-              src="/svg/icon-arrow-welcome-left.svg"
-              fill
-              alt="Arrow to the left"
-            />
+            <Image src="/svg/icon-arrow-welcome-left.svg" fill alt="Arrow to the left" />
           </button>
 
           <button
@@ -184,11 +152,7 @@ function WelcomeSlider() {
             }}
             disabled={onTransition !== null}
           >
-            <Image
-              src="/svg/icon-arrow-welcome-right.svg"
-              fill
-              alt="Arrow to the right"
-            />
+            <Image src="/svg/icon-arrow-welcome-right.svg" fill alt="Arrow to the right" />
           </button>
         </div>
       </div>

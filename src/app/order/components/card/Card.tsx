@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import React from 'react';
-import { useFormContext } from 'react-hook-form';
-import { Inputs } from '@/app/interfaces';
-import styles from './card.module.scss';
+import React from "react";
+import { useFormContext } from "react-hook-form";
+import { Inputs } from "@/app/interfaces";
+import styles from "./card.module.scss";
 
 function Card() {
   const {
@@ -19,11 +19,11 @@ function Card() {
           Card number
           <input
             type="text"
-            placeholder={errors?.card__number?.message || 'Card number'}
-            {...register('card__number', {
+            placeholder={errors?.card__number?.message || "Card number"}
+            {...register("card__number", {
               required: {
                 value: true,
-                message: 'It is required',
+                message: "It is required",
               },
             })}
           />
@@ -31,24 +31,24 @@ function Card() {
 
         <label className={styles.card__exp}>
           Expiration date
-          <div className={styles['card__exp-list']}>
+          <div className={styles["card__exp-list"]}>
             <input
               type="text"
-              placeholder={errors?.card__exp_month?.message || 'Month'}
-              {...register('card__exp_month', {
+              placeholder={errors?.card__exp_month?.message || "Month"}
+              {...register("card__exp_month", {
                 required: {
                   value: true,
-                  message: 'It is required',
+                  message: "It is required",
                 },
               })}
             />
             <input
               type="text"
-              placeholder={errors?.card__exp_year?.message || 'Year'}
-              {...register('card__exp_year', {
+              placeholder={errors?.card__exp_year?.message || "Year"}
+              {...register("card__exp_year", {
                 required: {
                   value: true,
-                  message: 'It is required',
+                  message: "It is required",
                 },
               })}
             />
@@ -59,11 +59,11 @@ function Card() {
           Cardholder name
           <input
             type="text"
-            placeholder={errors?.card__name?.message || 'Name'}
-            {...register('card__name', {
+            placeholder={errors?.card__name?.message || "Name"}
+            {...register("card__name", {
               required: {
                 value: true,
-                message: 'Required',
+                message: "Required",
               },
             })}
           />
@@ -76,11 +76,11 @@ function Card() {
             CVC/CVV
             <input
               type="text"
-              placeholder={errors?.cvv?.message || 'CVV'}
-              {...register('cvv', {
+              placeholder={errors?.cvv?.message || "CVV"}
+              {...register("cvv", {
                 required: {
                   value: true,
-                  message: 'Required',
+                  message: "Required",
                 },
               })}
             />

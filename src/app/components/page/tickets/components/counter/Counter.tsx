@@ -1,27 +1,21 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
-import React from 'react';
-import Image from 'next/image';
-import { useFormContext } from 'react-hook-form';
-import styles from './counter.module.scss';
+import React from "react";
+import Image from "next/image";
+import { useFormContext } from "react-hook-form";
+import styles from "./counter.module.scss";
 
 export enum CounterType {
-  'LIGHT' = 'light',
-  'DARK' = 'dark',
+  "LIGHT" = "light",
+  "DARK" = "dark",
 }
 
 export enum CounterNameType {
-  'BASIC' = 'basic',
-  'SENIOR' = 'senior',
+  "BASIC" = "basic",
+  "SENIOR" = "senior",
 }
 
-function Counter({
-  counterType,
-  counterName,
-}: {
-  counterType: CounterType;
-  counterName: CounterNameType;
-}) {
+function Counter({ counterType, counterName }: { counterType: CounterType; counterName: CounterNameType }) {
   const { register, setValue, watch } = useFormContext();
 
   const counter = watch(counterName);
@@ -40,12 +34,7 @@ function Counter({
         {counterType === CounterType.LIGHT ? (
           <Image src="/svg/icon-minus.svg" width={17} height={17} alt="Minus" />
         ) : (
-          <Image
-            src="/svg/icon-minus-white.svg"
-            width={17}
-            height={17}
-            alt="Minus"
-          />
+          <Image src="/svg/icon-minus-white.svg" width={17} height={17} alt="Minus" />
         )}
       </button>
 
@@ -68,12 +57,7 @@ function Counter({
         {counterType === CounterType.LIGHT ? (
           <Image src="/svg/icon-plus.svg" width={17} height={17} alt="Plus" />
         ) : (
-          <Image
-            src="/svg/icon-plus-white.svg"
-            width={17}
-            height={17}
-            alt="Plus"
-          />
+          <Image src="/svg/icon-plus-white.svg" width={17} height={17} alt="Plus" />
         )}
       </button>
     </div>

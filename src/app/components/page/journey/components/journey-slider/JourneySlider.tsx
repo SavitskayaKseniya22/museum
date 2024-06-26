@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import styles from './journey-slider.module.scss';
-import Player from '../player/Player';
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import styles from "./journey-slider.module.scss";
+import Player from "../player/Player";
 
 enum AnimationType {
-  'LEFT',
-  'RIGHT',
+  "LEFT",
+  "RIGHT",
 }
 
 const widthSliderItem = [454, 300, 354, 180, 130];
@@ -43,10 +43,10 @@ function JourneySlider({ content }: { content: Array<number> }) {
 
     handleResize();
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -83,30 +83,18 @@ function JourneySlider({ content }: { content: Array<number> }) {
                 }
 
                 if (slide === content.length - 1 && widthRange < 2) {
-                  return (
-                    widthSliderItem[widthRange] * (slide - 2) +
-                    gaps[widthRange] * (slide - 2)
-                  );
+                  return widthSliderItem[widthRange] * (slide - 2) + gaps[widthRange] * (slide - 2);
                 }
 
                 if (
                   (slide === content.length - 2 && widthRange < 2) ||
                   (slide === content.length - 1 && widthRange >= 2)
                 ) {
-                  return (
-                    widthSliderItem[widthRange] * (slide - 1) +
-                    gaps[widthRange] * (slide - 1)
-                  );
+                  return widthSliderItem[widthRange] * (slide - 1) + gaps[widthRange] * (slide - 1);
                 }
 
-                if (
-                  slide <= content.length - 3 ||
-                  (slide === content.length - 2 && widthRange >= 2)
-                ) {
-                  return (
-                    widthSliderItem[widthRange] * slide +
-                    gaps[widthRange] * slide
-                  );
+                if (slide <= content.length - 3 || (slide === content.length - 2 && widthRange >= 2)) {
+                  return widthSliderItem[widthRange] * slide + gaps[widthRange] * slide;
                 }
 
                 return 0;
@@ -129,24 +117,18 @@ function JourneySlider({ content }: { content: Array<number> }) {
                 onClick={() => {
                   setSlide(i);
                 }}
-                className={`${styles.slider__item} ${
-                  slide === i ? styles.slider__item_active : ''
-                }`}
+                className={`${styles.slider__item} ${slide === i ? styles.slider__item_active : ""}`}
                 style={{ width: widthSliderItem[widthRange] }}
                 key={item}
               >
-                <Image
-                  src={`/video/poster${item}.jpg`}
-                  fill
-                  alt="Louvre video poster"
-                />
+                <Image src={`/video/poster${item}.jpg`} fill alt="Louvre video poster" />
 
                 <Image
                   src="/svg/icon-play.svg"
                   width={45}
                   height={45}
                   alt="Play"
-                  className={styles['slider-item__icon']}
+                  className={styles["slider-item__icon"]}
                 />
               </li>
             ))}
@@ -176,11 +158,7 @@ function JourneySlider({ content }: { content: Array<number> }) {
           }}
           disabled={!!onTransition || slide >= content.length - 1}
         >
-          <Image
-            src="/svg/icon-arrow_right.svg"
-            fill
-            alt="Arrow to the right"
-          />
+          <Image src="/svg/icon-arrow_right.svg" fill alt="Arrow to the right" />
         </button>
       </div>
     </div>

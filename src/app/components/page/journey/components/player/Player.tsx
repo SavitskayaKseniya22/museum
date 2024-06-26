@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 
-'use client';
+"use client";
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import isVisible from '@/app/utils';
-import styles from './player.module.scss';
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import isVisible from "@/app/utils";
+import styles from "./player.module.scss";
 
 function Player({ number }: { number: number }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -52,36 +52,29 @@ function Player({ number }: { number: number }) {
     if (videoRef.current && volumeRangeRef.current) {
       if (isMuted) {
         videoRef.current.muted = false;
-        volumeRangeRef.current.value = videoRef.current
-          .volume as unknown as string;
+        volumeRangeRef.current.value = videoRef.current.volume as unknown as string;
       } else {
         videoRef.current.muted = true;
-        volumeRangeRef.current.value = '0';
+        volumeRangeRef.current.value = "0";
       }
     }
   }, [isMuted]);
 
   useEffect(() => {
     const handleUserKeyPress = (e: KeyboardEvent) => {
-      const isVisibleValue = isVisible(
-        videoContainerRef.current as HTMLElement
-      );
+      const isVisibleValue = isVisible(videoContainerRef.current as HTMLElement);
 
-      if (e.code === 'Space' && isVisibleValue) {
+      if (e.code === "Space" && isVisibleValue) {
         e.preventDefault();
         togglePlayer();
       }
 
-      if (e.code === 'KeyM' && (isVisibleValue || document.fullscreenElement)) {
+      if (e.code === "KeyM" && (isVisibleValue || document.fullscreenElement)) {
         e.preventDefault();
         toggleSound();
       }
 
-      if (
-        e.code === 'KeyF' &&
-        ((isVisibleValue && !document.fullscreenElement) ||
-          document.fullscreenElement)
-      ) {
+      if (e.code === "KeyF" && ((isVisibleValue && !document.fullscreenElement) || document.fullscreenElement)) {
         e.preventDefault();
         toggleFullScreen();
       }
@@ -93,41 +86,28 @@ function Player({ number }: { number: number }) {
 
     const videoConstantRef = videoContainerRef.current;
 
-    window.addEventListener('keydown', handleUserKeyPress);
+    window.addEventListener("keydown", handleUserKeyPress);
 
-    videoConstantRef!.addEventListener('fullscreenchange', handleFullScreen);
+    videoConstantRef!.addEventListener("fullscreenchange", handleFullScreen);
 
     return () => {
-      window.removeEventListener('keydown', handleUserKeyPress);
-      videoConstantRef!.removeEventListener(
-        'fullscreenchange',
-        handleFullScreen
-      );
+      window.removeEventListener("keydown", handleUserKeyPress);
+      videoConstantRef!.removeEventListener("fullscreenchange", handleFullScreen);
     };
   }, [toggleFullScreen, togglePlayer, toggleSound]);
 
   useEffect(() => {
     if (durationRangeRef.current && videoRef.current) {
-      durationRangeRef.current.max = videoRef.current
-        .duration as unknown as string;
-      durationRangeRef.current.value = '0';
+      durationRangeRef.current.max = videoRef.current.duration as unknown as string;
+      durationRangeRef.current.value = "0";
     }
   }, []);
 
   return (
     <div ref={videoContainerRef} className={styles.player}>
       <div className={styles.player__content}>
-        <button
-          className={styles.player__control}
-          type="button"
-          onClick={togglePlayer}
-        >
-          <Image
-            src="/svg/icon-play_big.svg"
-            fill
-            alt="Play"
-            style={{ display: isPlaying ? 'none' : 'block' }}
-          />
+        <button className={styles.player__control} type="button" onClick={togglePlayer}>
+          <Image src="/svg/icon-play_big.svg" fill alt="Play" style={{ display: isPlaying ? "none" : "block" }} />
         </button>
 
         <video
@@ -137,15 +117,13 @@ function Player({ number }: { number: number }) {
           ref={videoRef}
           onDurationChange={(e) => {
             if (durationRangeRef.current) {
-              durationRangeRef.current.max = (e.target as HTMLVideoElement)
-                .duration as unknown as string;
-              durationRangeRef.current.value = '0';
+              durationRangeRef.current.max = (e.target as HTMLVideoElement).duration as unknown as string;
+              durationRangeRef.current.value = "0";
             }
           }}
           onTimeUpdate={(e) => {
             if (durationRangeRef.current) {
-              durationRangeRef.current.value = (e.target as HTMLVideoElement)
-                .currentTime as unknown as string;
+              durationRangeRef.current.value = (e.target as HTMLVideoElement).currentTime as unknown as string;
             }
           }}
           onEnded={() => {
@@ -154,35 +132,28 @@ function Player({ number }: { number: number }) {
           }}
         >
           <source
-            src={`video/video${number}.mp4` || 'video/video0.mp4'}
+            src={`video/video${number}.mp4` || "video/video0.mp4"}
             type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
           />
-          <source
-            src={`video/video${number}.webm` || 'video/video0.webm'}
-            type='video/webm; codecs="vp8, vorbis"'
-          />
+          <source src={`video/video${number}.webm` || "video/video0.webm"} type='video/webm; codecs="vp8, vorbis"' />
         </video>
       </div>
 
       <div className={styles.player__controls}>
-        <button
-          className={styles.player__controls_play}
-          type="button"
-          onClick={togglePlayer}
-        >
+        <button className={styles.player__controls_play} type="button" onClick={togglePlayer}>
           <Image
             src="/svg/icon-play.svg"
             width={23}
             height={30}
             alt="Play"
-            style={{ display: isPlaying ? 'none' : 'block' }}
+            style={{ display: isPlaying ? "none" : "block" }}
           />
           <Image
             src="/svg/icon-pause.svg"
             width={25}
             height={25}
             alt="Play"
-            style={{ display: isPlaying ? 'block' : 'none' }}
+            style={{ display: isPlaying ? "block" : "none" }}
           />
         </button>
         <input
@@ -197,17 +168,13 @@ function Player({ number }: { number: number }) {
           }}
           defaultValue={0}
         />
-        <button
-          className={styles.player__controls_volume}
-          type="button"
-          onClick={toggleSound}
-        >
+        <button className={styles.player__controls_volume} type="button" onClick={toggleSound}>
           <Image
             src="/svg/icon-volume.svg"
             width={38}
             height={30}
             alt="Volume"
-            style={{ display: isMuted ? 'none' : 'block' }}
+            style={{ display: isMuted ? "none" : "block" }}
           />
 
           <Image
@@ -215,12 +182,12 @@ function Player({ number }: { number: number }) {
             width={38}
             height={30}
             alt="Volume"
-            style={{ display: isMuted ? 'block' : 'none' }}
+            style={{ display: isMuted ? "block" : "none" }}
           />
         </button>
         <input
           type="range"
-          className={styles['player__controls_volume-range']}
+          className={styles["player__controls_volume-range"]}
           name="volume"
           ref={volumeRangeRef}
           onChange={(e) => {
@@ -233,24 +200,20 @@ function Player({ number }: { number: number }) {
           step={0.1}
           defaultValue={1}
         />
-        <button
-          className={styles.player__controls_full}
-          type="button"
-          onClick={toggleFullScreen}
-        >
+        <button className={styles.player__controls_full} type="button" onClick={toggleFullScreen}>
           <Image
             src="/svg/icon-braces.svg"
             width={35}
             height={35}
             alt="Braces"
-            style={{ display: isFullScreen ? 'none' : 'block' }}
+            style={{ display: isFullScreen ? "none" : "block" }}
           />
           <Image
             src="/svg/icon-braces_exit.svg"
             width={35}
             height={35}
             alt="Braces"
-            style={{ display: isFullScreen ? 'block' : 'none' }}
+            style={{ display: isFullScreen ? "block" : "none" }}
           />
         </button>
       </div>

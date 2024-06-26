@@ -1,6 +1,6 @@
-import React from 'react';
-import Modal from '@/app/components/shared/modal/Modal';
-import MapContainer from '@/app/map/[name]/components/map-container/MapContainer';
+import React from "react";
+import Modal from "@/app/components/shared/modal/Modal";
+import MapContainer from "@/app/map/[name]/components/map-container/MapContainer";
 
 function MapModal({
   params,
