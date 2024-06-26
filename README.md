@@ -1,7 +1,9 @@
 # [Museum](https://museum-liart.vercel.app/)
+
 Landing page of the Louvre, one of the largest and most popular art museums in the world.
 
 ## Features
+
 - Gallery carousel
 - Burger menu
 - Custom player and playlist carousel
@@ -13,6 +15,7 @@ Landing page of the Louvre, one of the largest and most popular art museums in t
 - Mobile layout
 
 ## Tech Stack
+
 - React
 - Ttypescript
 - Sass
@@ -25,27 +28,32 @@ Landing page of the Louvre, one of the largest and most popular art museums in t
 - Redux
 - Vercel
 
-
 ## How to use
+
 1. Clone the repo
-``` bash
+
+```bash
 git clone https://github.com/SavitskayaKseniya22/museum.git
 ```
 
-2. Install dependencies
-``` bash
+2. Change directory
+
+```bash
+cd museum
+```
+
+3. Install dependencies
+
+```bash
 npm install
 ```
 
-3. Start the dev server
-``` bash
+4. Start the dev server
+
+```bash
 npm run dev
 ```
 
-### Screenshots: 
+### Screenshots
 
 ![изображение](https://raw.githubusercontent.com/SavitskayaKseniya22/projects-photos/main/photos/museum/screenshots/museum-1280px.png)
-
-
-
-
