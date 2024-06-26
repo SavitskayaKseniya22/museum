@@ -1,7 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
-import styles from './gallery.module.scss';
-import H2, { TitleColorType, TitleType } from '../../shared/h2/H2';
+import React from "react";
+import Image from "next/image";
+import styles from "./gallery.module.scss";
+import H2, { TitleColorType, TitleType } from "../../shared/h2/H2";
 
 export function shuffle<T>(array: Array<T>) {
   const arrayCopy = [...array];

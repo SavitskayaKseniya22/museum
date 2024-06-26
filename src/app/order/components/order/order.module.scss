@@ -1,4 +1,4 @@
-@import '../../../variables.module.scss';
+@import "../../../variables.module.scss";
 
 .container {
   background-color: white;
@@ -117,7 +117,7 @@
           width: 100%;
 
           &::after {
-            content: ' ';
+            content: " ";
             display: block;
             background-color: $red-color;
             height: 2px;

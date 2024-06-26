@@ -1,4 +1,4 @@
-@import '../../../../../variables.module.scss';
+@import "../../../../../variables.module.scss";
 
 .welcome__header {
   display: flex;
@@ -35,14 +35,7 @@
       cursor: pointer;
       border: none;
 
-      background: linear-gradient(
-        to bottom,
-        white 10%,
-        black 10% 45%,
-        white 45% 55%,
-        black 55% 90%,
-        white 90%
-      );
+      background: linear-gradient(to bottom, white 10%, black 10% 45%, white 45% 55%, black 55% 90%, white 90%);
       transition: 1s;
 
       &.header__burger_verical {

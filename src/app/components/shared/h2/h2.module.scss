@@ -1,4 +1,4 @@
-@import '../../../variables.module.scss';
+@import "../../../variables.module.scss";
 
 .h2 {
   display: block;
@@ -42,7 +42,7 @@
 
   &.underlined {
     &::after {
-      content: ' ';
+      content: " ";
       display: block;
       width: 100%;
       height: 3px;

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
-import ModalContainer from '@/app/components/shared/modal-container/ModalContainer';
-import MapContainer from './components/map-container/MapContainer';
+import ModalContainer from "@/app/components/shared/modal-container/ModalContainer";
+import MapContainer from "./components/map-container/MapContainer";
 
 function Map({
   params,

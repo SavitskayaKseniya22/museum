@@ -1,4 +1,4 @@
-@import '../../../../../variables.module.scss';
+@import "../../../../../variables.module.scss";
 
 .tour__content {
   width: 440px;
@@ -11,8 +11,7 @@
 
   .tour__title {
     padding-bottom: 10px;
-    background-image: linear-gradient($red-color, $red-color),
-      linear-gradient($red-color, $red-color);
+    background-image: linear-gradient($red-color, $red-color), linear-gradient($red-color, $red-color);
 
     background-position:
       0 100%,

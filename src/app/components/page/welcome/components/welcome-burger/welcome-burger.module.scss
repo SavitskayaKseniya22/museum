@@ -1,4 +1,4 @@
-@import '../../../../../variables.module.scss';
+@import "../../../../../variables.module.scss";
 
 .welcome__content_burger {
   display: none;
@@ -79,7 +79,7 @@
   width: 125px;
 
   li {
-    background-image: url('/svg/icon-arrow_nav.svg');
+    background-image: url("/svg/icon-arrow_nav.svg");
     background-repeat: no-repeat;
     background-position: center right;
   }
@@ -111,7 +111,7 @@
   }
 
   &::after {
-    content: ' ';
+    content: " ";
     display: block;
     height: 1px;
     width: 100%;

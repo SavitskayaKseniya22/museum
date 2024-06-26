@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './navigation.module.scss';
-import NavLink from '../nav-link/NavLink';
+import React from "react";
+import styles from "./navigation.module.scss";
+import NavLink from "../nav-link/NavLink";
 
 function Navigation({ className }: { className: string }) {
   return (

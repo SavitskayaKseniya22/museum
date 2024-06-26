@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import styles from './welcome.module.scss';
-import WelcomeSlider from './components/welcome-slider/WelcomeSlider';
-import WelcomeBurger from './components/welcome-burger/WelcomeBurger';
-import WelcomeHeader from './components/welcome-header/WelcomeHeader';
-import WelcomeGreetings from './components/welcome-greetings/WelcomeGreetings';
-import BurgerContext from './components/context';
+import React, { useEffect, useState } from "react";
+import styles from "./welcome.module.scss";
+import WelcomeSlider from "./components/welcome-slider/WelcomeSlider";
+import WelcomeBurger from "./components/welcome-burger/WelcomeBurger";
+import WelcomeHeader from "./components/welcome-header/WelcomeHeader";
+import WelcomeGreetings from "./components/welcome-greetings/WelcomeGreetings";
+import BurgerContext from "./components/context";
 
 function Welcome() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,10 +21,10 @@ function Welcome() {
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, [isOpen]);
 

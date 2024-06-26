@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import styles from './comparison.module.scss';
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import styles from "./comparison.module.scss";
 
 function Comparition() {
   const [position, setPosition] = useState(50);
@@ -17,9 +17,7 @@ function Comparition() {
 
   useEffect(() => {
     const handleResize = () => {
-      const dropzonePosition = (
-        dropZoneRef.current as unknown as HTMLElement
-      ).getBoundingClientRect();
+      const dropzonePosition = (dropZoneRef.current as unknown as HTMLElement).getBoundingClientRect();
 
       positions.current = {
         left: dropzonePosition.left,
@@ -30,10 +28,10 @@ function Comparition() {
 
     handleResize();
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -51,15 +49,12 @@ function Comparition() {
         }
       }}
     >
-      <div
-        className={styles.comparition__image_first}
-        style={{ width: `calc(${position}% + 20px)` }}
-      >
+      <div className={styles.comparition__image_first} style={{ width: `calc(${position}% + 20px)` }}>
         <Image
           src="/img/explore/img-before.jpg"
           fill
           alt="Before"
-          style={{ objectFit: 'cover', objectPosition: 'left bottom' }}
+          style={{ objectFit: "cover", objectPosition: "left bottom" }}
         />
       </div>
       <div
@@ -70,11 +65,7 @@ function Comparition() {
         }}
         ref={cursorRef}
         onDragStart={(e) => {
-          e.dataTransfer.setDragImage(
-            imageRef.current as unknown as Element,
-            -1000,
-            -1000
-          );
+          e.dataTransfer.setDragImage(imageRef.current as unknown as Element, -1000, -1000);
         }}
       >
         <Image
@@ -84,7 +75,7 @@ function Comparition() {
           draggable="false"
           ref={imageRef}
           style={{
-            objectFit: 'cover',
+            objectFit: "cover",
           }}
         />
       </div>
@@ -94,7 +85,7 @@ function Comparition() {
           src="/img/explore/img-after.jpg"
           fill
           alt="After"
-          style={{ objectFit: 'cover', objectPosition: 'right bottom' }}
+          style={{ objectFit: "cover", objectPosition: "right bottom" }}
         />
       </div>
     </div>
