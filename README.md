@@ -24,7 +24,6 @@ Landing page of the Louvre, one of the largest and most popular art museums in t
 - Prettier
 - Normalize.css
 - React-hook-form
-- Mapbox-gl
 - Redux
 - Vercel
 

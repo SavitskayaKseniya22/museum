@@ -5,7 +5,6 @@ import Link from "next/link";
 import styles from "./contacts.module.scss";
 import H2, { TitleColorType, TitleType } from "../../shared/h2/H2";
 import H4 from "../../shared/h4/H4";
-import Map from "./components/map/Map";
 
 function Contacts() {
   return (
@@ -40,8 +39,6 @@ function Contacts() {
             </li>
           </ul>
         </div>
-
-        <Map />
       </div>
     </section>
   );
