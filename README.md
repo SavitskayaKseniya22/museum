@@ -17,7 +17,7 @@ Landing page of the Louvre, one of the largest and most popular art museums in t
 ## Tech Stack
 
 - React
-- Ttypescript
+- Typescript
 - Sass
 - Next
 - Eslint
